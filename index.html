@@ -9,12 +9,57 @@
 </head>
 
 <body>
+    <!-- Global menu -->
     <header>
         <nav></nav>
     </header>
+
+    <!-- Splashbillede og velkomst tekst -->
+    <section id="splash">
+        <h1>Idrætshøjskolen Sønderborg</h1>
+        <h3>Succesoplevelser for hjernen og hjertet</h3>
+        <button>Jeg er en knap.</button>
+    </section>
+
+    <!-- Indhold på forsiden -->
     <main>
 
+        <!-- Introduktion til IHS -->
+        <section id="intro">
+            <article>
+                <h2>Fællesskab, kompetencer, oplevelser</h2>
+                <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
+                <img src="" alt="">
+            </article>
+        </section>
+
+        <!-- Sektion med anbefalinger fra tidligere elever -->
+        <section id="reviews">
+            <h2>Tidligere studerende mener</h2>
+            <template id="review_template">
+                <article class="review">
+                    <h3 class="name"></h3>
+                    <p class="job"></p>
+                    <p class="short_text"></p>
+                </article>
+            </template>
+        </section>
+
+        <!-- Sektion med de overordnede fag -->
+        <section id="categories">
+            <h2>Udforsk fagene</h2>
+            <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
+            <template class="category_template">
+                <article class="category">
+                    <img src="" alt="">
+                    <h3 class="title"></h3>
+                    <p class="short_text"></p>
+                </article>
+            </template>
+        </section>
     </main>
+
+    <!-- Global footer -->
     <footer>
         Gruppe 1
         Silje, Sara, Siw, Christian & Morten
@@ -22,4 +67,6 @@
         Caseopgave for Idrætshøjskolen Sønderborg/IHS
     </footer>
     <script src="script.js"></script>
-</body></html>
+</body>
+
+</html>
