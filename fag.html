@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fag | Idrætshøjskolen Sønderborg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Global menu -->
+        <header>
+            <nav></nav>
+        </header>
+
+        <!-- Splashbillede og overskrift -->
+        <section id="splash_fag">
+            <h1>Find spændende fag, der matcher din smag</h1>
+            <button>Jeg er en knap.</button>
+        </section>
+
+        <!-- Indhold på fag siden -->
+        <main>
+            <section id="intro_fag">
+                <article>
+                    <h2>Udforsk fagene</h2>
+                    <p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
+                </article>
+                <div class="buttons_container"></div>
+                <div class="buttons_container"></div>
+            </section>
+            <section id="specialefag"></section>
+            <section id="idraetsfag"></section>
+            <section id="almene_fag"></section>
+            <section id="interessefag"></section>
+            <section id="faellesfag"></section>
+        </main>
+        <!-- Global footer -->
+        <footer>
+            Gruppe 1
+            Silje, Sara, Siw, Christian & Morten
+            Københanvs Erhvervsakademi/KEA
+            Caseopgave for Idrætshøjskolen Sønderborg/IHS
+        </footer>
+    </header>
+    <script>
+        "use strict"
+
+        let theCategories;
+        let theCourses;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("start");
+            getTheCategories();
+        }
+
+        async function getTheCategories() {
+            console.log("getTheCategories");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/categories";
+            let jsonData = await fetch(url);
+            theCategories = await jsonData.json();
+            // generateCategoryButtons();
+
+            getTheCourses();
+        }
+
+        async function getTheCourses() {
+            console.log("getTheCourses");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
+            let jsonData = await fetch(url);
+            theCourses = await jsonData.json();
+            console.log("LOADING DONE");
+        }
+    </script>
+</body></html>
