@@ -28,15 +28,44 @@
                     <h2>Udforsk fagene</h2>
                     <p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
                 </article>
-                <div class="buttons_container"></div>
-                <div class="buttons_container"></div>
+                <div class="buttons_semester"></div>
+                <div class="buttons_categories">
+                    <button>Alle</button>
+                </div>
             </section>
-            <section id="specialefag"></section>
-            <section id="idraetsfag"></section>
-            <section id="almene_fag"></section>
-            <section id="interessefag"></section>
-            <section id="faellesfag"></section>
+            <section id="specialefag">
+                <h2></h2>
+                <article class="course"></article>
+            </section>
+            <section id="idraetsfag">
+                <h2></h2>
+                <article class="course"></article>
+            </section>
+            <section id="almene_fag">
+                <h2></h2>
+                <article class="course"></article>
+            </section>
+            <section id="interessefag">
+                <h2></h2>
+                <article class="course"></article>
+            </section>
+            <section id="faellesfag">
+                <h2></h2>
+                <article class="course"></article>
+            </section>
         </main>
+        <!-- TEMPLATES -->
+        <template id="button_tmpl">
+            <button></button>
+        </template>
+        <template id="course_tmpl">
+            <article>
+                <img src="" alt="">
+                <h3></h3>
+                <a href="">Klik og læs mere</a>
+            </article>
+        </template>
+
         <!-- Global footer -->
         <footer>
             Gruppe 1
@@ -63,7 +92,8 @@
             let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/categories";
             let jsonData = await fetch(url);
             theCategories = await jsonData.json();
-            // generateCategoryButtons();
+
+            generateCategoryButtons();
 
             getTheCourses();
         }
@@ -74,6 +104,183 @@
             let jsonData = await fetch(url);
             theCourses = await jsonData.json();
             console.log("LOADING DONE");
+            console.log(theCourses);
+            filterContent("alle");
+            document.querySelector("#idraetsfag").style.display = "block";
+            document.querySelector("#almene_fag").style.display = "block";
+            document.querySelector("#interessefag").style.display = "block";
+            document.querySelector("#faellesfag").style.display = "block";
+
+            document.querySelector("#specialefag").style.display = "block";
         }
+
+        function generateCategoryButtons() {
+            let dest = document.querySelector(".buttons_categories");
+            let temp = document.querySelector("#button_tmpl");
+
+            document.querySelector(".buttons_categories button").dataset.id = "alle";
+            document.querySelector(".buttons_categories button").addEventListener("click", categoryClick);
+            theCategories.forEach(category => {
+                if (category.slug != "uncategorized") {
+                    let clone = temp.cloneNode(true).content;
+                    clone.querySelector("button").textContent = category.name;
+                    clone.querySelector("button").dataset.name = category.name;
+                    clone.querySelector("button").dataset.id = category.id;
+                    clone.querySelector("button").addEventListener("click", categoryClick);
+
+                    dest.appendChild(clone);
+                }
+
+                if (category.slug == "specialefag") {
+                    document.querySelector("#specialefag h2").textContent = category.name;
+                }
+
+                if (category.slug == "idraetsfag") {
+                    document.querySelector("#idraetsfag h2").textContent = category.name;
+                }
+
+                if (category.slug == "almene-fag") {
+                    document.querySelector("#almene_fag h2").textContent = category.name;
+                }
+
+                if (category.slug == "interessefag") {
+                    document.querySelector("#interessefag h2").textContent = category.name;
+                }
+
+                if (category.slug == "faelles-fag") {
+                    document.querySelector("#faellesfag h2").textContent = category.name;
+                }
+            })
+        }
+
+        function categoryClick() {
+            console.log(this.dataset.id);
+            filterContent(this.dataset.id);
+
+            if (this.dataset.id == "alle") {
+                document.querySelector("#idraetsfag").style.display = "block";
+                document.querySelector("#almene_fag").style.display = "block";
+                document.querySelector("#interessefag").style.display = "block";
+                document.querySelector("#faellesfag").style.display = "block";
+
+                document.querySelector("#specialefag").style.display = "block";
+            }
+
+            //document.querySelectorAll(".button_categories button").forEach(each => each.classList.remove("valgt"));
+
+this.classList.add("valgt");
+        }
+
+        function filterContent(theFilter) {
+            let filtered;
+            if (theFilter == "alle") {
+                filtered = theCourses;
+            } else {
+                filtered = theCourses.filter(course => course.categories[0] == theFilter);
+            }
+            showCourses(filtered);
+        }
+
+        function showCourses(theFilteredJson) {
+            let dest1 = document.querySelector("#specialefag .course");
+            let dest2 = document.querySelector("#idraetsfag .course");
+            let dest3 = document.querySelector("#almene_fag .course");
+            let dest4 = document.querySelector("#interessefag .course");
+            let dest5 = document.querySelector("#faellesfag .course");
+            let temp = document.querySelector("#course_tmpl");
+
+            document.querySelector("#idraetsfag").style.display = "block";
+            document.querySelector("#almene_fag").style.display = "block";
+            document.querySelector("#interessefag").style.display = "block";
+            document.querySelector("#faellesfag").style.display = "block";
+
+            document.querySelector("#specialefag").style.display = "block";
+
+            dest1.innerHTML = "";
+            dest2.innerHTML = "";
+            dest3.innerHTML = "";
+            dest4.innerHTML = "";
+            dest5.innerHTML = "";
+
+            theFilteredJson.forEach(course => {
+                if (course.categories == "2") {
+                    let clone = temp.cloneNode(true).content;
+                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector("h3").textContent = course.title.rendered;
+
+                    dest1.appendChild(clone);
+
+                    document.querySelector("#idraetsfag").style.display = "none";
+                    document.querySelector("#almene_fag").style.display = "none";
+                    document.querySelector("#interessefag").style.display = "none";
+                    document.querySelector("#faellesfag").style.display = "none";
+
+                    document.querySelector("#specialefag").style.display = "block";
+                }
+
+                if (course.categories == "3") {
+                    let clone = temp.cloneNode(true).content;
+                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector("h3").textContent = course.title.rendered;
+
+                    dest2.appendChild(clone);
+
+                    document.querySelector("#idraetsfag").style.display = "block";
+                    document.querySelector("#almene_fag").style.display = "none";
+                    document.querySelector("#interessefag").style.display = "none";
+                    document.querySelector("#faellesfag").style.display = "none";
+
+                    document.querySelector("#specialefag").style.display = "none";
+                }
+
+                if (course.categories == "4") {
+                    let clone = temp.cloneNode(true).content;
+                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector("h3").textContent = course.title.rendered;
+
+                    dest3.appendChild(clone);
+
+                    document.querySelector("#idraetsfag").style.display = "none";
+                    document.querySelector("#almene_fag").style.display = "block";
+                    document.querySelector("#interessefag").style.display = "none";
+                    document.querySelector("#faellesfag").style.display = "none";
+
+                    document.querySelector("#specialefag").style.display = "none";
+                }
+
+                if (course.categories == "5") {
+                    let clone = temp.cloneNode(true).content;
+                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector("h3").textContent = course.title.rendered;
+
+                    dest4.appendChild(clone);
+
+                    document.querySelector("#idraetsfag").style.display = "none";
+                    document.querySelector("#almene_fag").style.display = "none";
+                    document.querySelector("#interessefag").style.display = "block";
+                    document.querySelector("#faellesfag").style.display = "none";
+
+                    document.querySelector("#specialefag").style.display = "none";
+                }
+
+                if (course.categories == "6") {
+                    let clone = temp.cloneNode(true).content;
+                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector("h3").textContent = course.title.rendered;
+
+                    dest5.appendChild(clone);
+
+                    document.querySelector("#idraetsfag").style.display = "none";
+                    document.querySelector("#almene_fag").style.display = "none";
+                    document.querySelector("#interessefag").style.display = "none";
+                    document.querySelector("#faellesfag").style.display = "block";
+
+                    document.querySelector("#specialefag").style.display = "none";
+                }
+            })
+        }
+
     </script>
-</body></html>
+</body>
+
+</html>
