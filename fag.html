@@ -58,10 +58,10 @@
         <button></button>
     </template>
     <template id="course_tmpl">
-        <article>
+        <article class="course">
             <img src="" alt="">
             <h3></h3>
-            <a href="">Klik og læs mere</a>
+            <p>Klik og læs mere</p>
         </article>
     </template>
 
@@ -164,7 +164,6 @@
 
             document.querySelectorAll(".cat_btn").forEach(each => {
                 each.classList.remove("valgt");
-                console.log("EACH", each);
             });
             this.classList.add("valgt");
         }
@@ -206,6 +205,10 @@
                     clone.querySelector("img").src = course.billede_1.guid;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
+                    clone.querySelector(".course").addEventListener("click", function() {
+                        courseClick(course.id);
+                    });
+
                     dest1.appendChild(clone);
 
                     document.querySelector("#idraetsfag").style.display = "none";
@@ -220,6 +223,10 @@
                     let clone = temp.cloneNode(true).content;
                     clone.querySelector("img").src = course.billede_1.guid;
                     clone.querySelector("h3").textContent = course.title.rendered;
+
+                    clone.querySelector(".course").addEventListener("click", function() {
+                        courseClick(course.id);
+                    });
 
                     dest2.appendChild(clone);
 
@@ -236,6 +243,10 @@
                     clone.querySelector("img").src = course.billede_1.guid;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
+                    clone.querySelector(".course").addEventListener("click", function() {
+                        courseClick(course.id);
+                    });
+
                     dest3.appendChild(clone);
 
                     document.querySelector("#idraetsfag").style.display = "none";
@@ -250,6 +261,10 @@
                     let clone = temp.cloneNode(true).content;
                     clone.querySelector("img").src = course.billede_1.guid;
                     clone.querySelector("h3").textContent = course.title.rendered;
+
+                    clone.querySelector(".course").addEventListener("click", function() {
+                        courseClick(course.id);
+                    });
 
                     dest4.appendChild(clone);
 
@@ -266,6 +281,10 @@
                     clone.querySelector("img").src = course.billede_1.guid;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
+                    clone.querySelector(".course").addEventListener("click", function() {
+                        courseClick(course.id);
+                    });
+
                     dest5.appendChild(clone);
 
                     document.querySelector("#idraetsfag").style.display = "none";
@@ -276,6 +295,11 @@
                     document.querySelector("#specialefag").style.display = "none";
                 }
             })
+        }
+
+        function courseClick(id) {
+            console.log(id);
+            location.href = "singleview.html?id=" + id;
         }
 
     </script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| Idrætshøjskolen Sønderborg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Global menu -->
+    <header>
+        <nav></nav>
+    </header>
+    <!-- Splashbillede og overskrift -->
+    <section id="splash_singleview">
+        <h1></h1>
+    </section>
+    <main>
+        <div class="back">X</div>
+        <section class="course">
+            <div class="column_left">
+                <div class="column_top">
+                    <h2></h2>
+                    <p></p>
+                </div>
+                <div class="column_bottom">
+                    <img class="image_1" src="" alt="">
+                    <img class="image_2" src="" alt="">
+                    <img class="image_3" src="" alt="">
+                    <img class="image_4" src="" alt="">
+                    <img class="image_5" src="" alt="">
+                    <img class="image_6" src="" alt="">
+                </div>
+            </div>
+            <div class="column_right">
+                <img class="image_large" src="" alt="">
+            </div>
+        </section>
+    </main>
+    <footer>
+        Gruppe 1
+        Silje, Sara, Siw, Christian & Morten
+        Københanvs Erhvervsakademi/KEA
+        Caseopgave for Idrætshøjskolen Sønderborg/IHS
+    </footer>
+    <script>
+        "use strict"
+
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let theCourse;
+
+        document.addEventListener("DOMContentLoaded", getTheCourse);
+
+        async function getTheCourse() {
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag/" + id;
+            let jsonData = await fetch(url);
+            theCourse = await jsonData.json();
+
+            document.querySelector("h1").textContent = theCourse.title.rendered;
+            document.querySelector("h2").textContent = theCourse.title.rendered;
+            document.querySelector("p").innerHTML = theCourse.beskrivelse;
+            document.querySelector(".image_1").src = theCourse.billede_1.guid;
+            document.querySelector(".image_2").src = theCourse.billede_2.guid;
+            document.querySelector(".image_3").src = theCourse.billede_3.guid;
+            document.querySelector(".image_4").src = theCourse.billede_4.guid;
+            document.querySelector(".image_5").src = theCourse.billede_5.guid;
+            document.querySelector(".image_6").src = theCourse.billede_6.guid;
+
+            document.querySelector(".back").addEventListener("click", function() {
+                window.history.back();
+            })
+        }
+
+    </script>
+</body>
+
+</html>
