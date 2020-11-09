@@ -123,6 +123,7 @@
                 clone.querySelector("button").textContent = category.name;
                 clone.querySelector("button").dataset.name = category.name;
                 clone.querySelector("button").dataset.id = category.id;
+                clone.querySelector("button").classList.add("cat_btn");
                 clone.querySelector("button").addEventListener("click", categoryClick);
                 dest.appendChild(clone);
 
@@ -149,7 +150,7 @@
         }
 
         function categoryClick() {
-            console.log(this.dataset.id);
+            console.log("ID", this.dataset.id);
             filterContent(this.dataset.id);
 
             if (this.dataset.id == "alle") {
@@ -161,9 +162,10 @@
                 document.querySelector("#specialefag").style.display = "block";
             }
 
-            document.querySelectorAll(".button_categories button").forEach(each => each.classList.remove("valgt"));
-            console.log("test");
-
+            document.querySelectorAll(".cat_btn").forEach(each => {
+                each.classList.remove("valgt");
+                console.log("EACH", each);
+            });
             this.classList.add("valgt");
         }
 

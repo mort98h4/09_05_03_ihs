@@ -11,6 +11,11 @@ img {
     background-color: inherit;
 }
 
+.buttons_categories button {
+
+    /*    color: blue;*/
+}
+
 .valgt {
     color: red;
 }
