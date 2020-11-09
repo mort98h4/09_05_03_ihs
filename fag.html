@@ -9,71 +9,69 @@
 </head>
 
 <body>
+    <!-- Global menu -->
     <header>
-        <!-- Global menu -->
-        <header>
-            <nav></nav>
-        </header>
-
-        <!-- Splashbillede og overskrift -->
-        <section id="splash_fag">
-            <h1>Find spændende fag, der matcher din smag</h1>
-            <button>Jeg er en knap.</button>
-        </section>
-
-        <!-- Indhold på fag siden -->
-        <main>
-            <section id="intro_fag">
-                <article>
-                    <h2>Udforsk fagene</h2>
-                    <p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
-                </article>
-                <div class="buttons_semester"></div>
-                <div class="buttons_categories">
-                    <button>Alle</button>
-                </div>
-            </section>
-            <section id="specialefag">
-                <h2></h2>
-                <article class="course"></article>
-            </section>
-            <section id="idraetsfag">
-                <h2></h2>
-                <article class="course"></article>
-            </section>
-            <section id="almene_fag">
-                <h2></h2>
-                <article class="course"></article>
-            </section>
-            <section id="interessefag">
-                <h2></h2>
-                <article class="course"></article>
-            </section>
-            <section id="faellesfag">
-                <h2></h2>
-                <article class="course"></article>
-            </section>
-        </main>
-        <!-- TEMPLATES -->
-        <template id="button_tmpl">
-            <button></button>
-        </template>
-        <template id="course_tmpl">
-            <article>
-                <img src="" alt="">
-                <h3></h3>
-                <a href="">Klik og læs mere</a>
-            </article>
-        </template>
-
-        <!-- Global footer -->
-        <footer>
-            Gruppe 1
-            Silje, Sara, Siw, Christian & Morten
-            Københanvs Erhvervsakademi/KEA
-            Caseopgave for Idrætshøjskolen Sønderborg/IHS
-        </footer>
+        <nav></nav>
     </header>
+
+    <!-- Splashbillede og overskrift -->
+    <section id="splash_fag">
+        <h1>Find spændende fag, der matcher din smag</h1>
+        <button>Jeg er en knap.</button>
+    </section>
+
+    <!-- Indhold på fag siden -->
+    <main>
+        <section id="intro_fag">
+            <article>
+                <h2>Udforsk fagene</h2>
+                <p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
+            </article>
+            <div class="buttons_semester"></div>
+            <nav class="buttons_categories">
+                <button>Alle</button>
+            </nav>
+        </section>
+        <section id="specialefag">
+            <h2></h2>
+            <article class="course"></article>
+        </section>
+        <section id="idraetsfag">
+            <h2></h2>
+            <article class="course"></article>
+        </section>
+        <section id="almene_fag">
+            <h2></h2>
+            <article class="course"></article>
+        </section>
+        <section id="interessefag">
+            <h2></h2>
+            <article class="course"></article>
+        </section>
+        <section id="faellesfag">
+            <h2></h2>
+            <article class="course"></article>
+        </section>
+    </main>
+    <!-- TEMPLATES -->
+    <template id="button_tmpl">
+        <button></button>
+    </template>
+    <template id="course_tmpl">
+        <article>
+            <img src="" alt="">
+            <h3></h3>
+            <a href="">Klik og læs mere</a>
+        </article>
+    </template>
+
+    <!-- Global footer -->
+    <footer>
+        Gruppe 1
+        Silje, Sara, Siw, Christian & Morten
+        Københanvs Erhvervsakademi/KEA
+        Caseopgave for Idrætshøjskolen Sønderborg/IHS
+    </footer>
     <script>
         "use strict"
 
@@ -106,11 +104,11 @@
             console.log("LOADING DONE");
             console.log(theCourses);
             filterContent("alle");
+
             document.querySelector("#idraetsfag").style.display = "block";
             document.querySelector("#almene_fag").style.display = "block";
             document.querySelector("#interessefag").style.display = "block";
             document.querySelector("#faellesfag").style.display = "block";
-
             document.querySelector("#specialefag").style.display = "block";
         }
 
@@ -121,15 +119,12 @@
             document.querySelector(".buttons_categories button").dataset.id = "alle";
             document.querySelector(".buttons_categories button").addEventListener("click", categoryClick);
             theCategories.forEach(category => {
-                if (category.slug != "uncategorized") {
-                    let clone = temp.cloneNode(true).content;
-                    clone.querySelector("button").textContent = category.name;
-                    clone.querySelector("button").dataset.name = category.name;
-                    clone.querySelector("button").dataset.id = category.id;
-                    clone.querySelector("button").addEventListener("click", categoryClick);
-
-                    dest.appendChild(clone);
-                }
+                let clone = temp.cloneNode(true).content;
+                clone.querySelector("button").textContent = category.name;
+                clone.querySelector("button").dataset.name = category.name;
+                clone.querySelector("button").dataset.id = category.id;
+                clone.querySelector("button").addEventListener("click", categoryClick);
+                dest.appendChild(clone);
 
                 if (category.slug == "specialefag") {
                     document.querySelector("#specialefag h2").textContent = category.name;
@@ -167,6 +162,7 @@
             }
 
             document.querySelectorAll(".button_categories button").forEach(each => each.classList.remove("valgt"));
+            console.log("test");
 
             this.classList.add("valgt");
         }

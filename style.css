@@ -7,6 +7,10 @@ img {
     width: 100%;
 }
 
+.inactive {
+    background-color: inherit;
+}
+
 .valgt {
-    background-color: black;
+    color: red;
 }
