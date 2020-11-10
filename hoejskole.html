@@ -28,5 +28,88 @@
             </div>
         </nav>
     </header>
-    <script src=""></script>
+
+    <main>
+
+        <section class="splash"></section>
+        <section class="quote_1"></section>
+        <section class="summer"></section>
+        <section class="vinter"></section>
+        <section class="quote_2"></section>
+        <section class="find_your_course"></section>
+        <section class="quote_3"></section>
+        <section class="travel_with"></section>
+
+        <template id="splash_tmpl">
+            <article id="splash">
+                <img src="" alt="">
+                <h1></h1>
+            </article>
+            <article>
+
+            </article>
+        </template>
+
+        <template id="quote_tmpl">
+            <article>
+                <h3></h3>
+                <p></p>
+            </article>
+        </template>
+        <template id="summer_vinter_tmpl">
+            <article>
+
+            </article>
+        </template>
+        <template id="find_your_course_tmpl"></template>
+        <template id="travel_with_tmpl"></template>
+
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+        "use strict"
+
+        let thePage;
+        let theStudentQuote;
+        let theCourse;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("start");
+            getThePages();
+            getTheQuote();
+        }
+
+        async function getThePages() {
+            console.log("getTheCategories");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages?per_page=50";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+        }
+
+
+
+        async function getTheQuote() {
+            console.log("getTheCourses");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat";
+            let jsonData = await fetch(url);
+            theStudentQuote = await jsonData.json();
+            console.log("LOADING DONE");
+            console.log(theStudentQuote);
+
+        }
+
+        async function getThePages() {
+            console.log("getTheCategories");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages?per_page=50";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+        }
+    </script>
 </body></html>
