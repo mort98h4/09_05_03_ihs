@@ -13,6 +13,9 @@ burger.addEventListener("click", () => {
 });
 
 document.querySelector("#logo").addEventListener("click", logoClick);
+//document.querySelector(".dropdown").addEventListener("mouseover", () => {
+//document.querySelector(".dropdown_content").style.display = "block";
+//})
 
 function logoClick() {
     location.href = "index.html";
