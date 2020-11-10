@@ -3,17 +3,13 @@
     margin: 0;
 }
 
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 img {
     width: 100%;
-}
-
-.inactive {
-    background-color: inherit;
-}
-
-.buttons_categories button {
-
-    /*    color: blue;*/
 }
 
 .valgt {
