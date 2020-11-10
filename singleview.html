@@ -69,10 +69,19 @@
             document.querySelector(".image_5").src = theCourse.billede_5.guid;
             document.querySelector(".image_6").src = theCourse.billede_6.guid;
 
-            document.querySelector(".back").addEventListener("click", function() {
-                window.history.back();
-            })
+            document.querySelectorAll(".column_bottom img").forEach(each => {
+                each.addEventListener("click", imageClick);
+            });
         }
+
+        function imageClick() {
+            let imageLarge = document.querySelector(".image_large");
+
+            imageLarge.src = this.src;
+        }
+        document.querySelector(".back").addEventListener("click", function() {
+            window.history.back();
+        });
 
     </script>
 </body>
