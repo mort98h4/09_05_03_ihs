@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .splash .wp-block-columns {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .summer .wp-block-column {}
+
+        .vinter .wp-block-column {}
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,40 +57,48 @@
 
     <main>
 
-        <section class="splash"></section>
-        <section class="quote_1"></section>
-        <section class="summer"></section>
-        <section class="vinter"></section>
-        <section class="quote_2"></section>
-        <section class="find_your_course"></section>
-        <section class="quote_3"></section>
-        <section class="travel_with"></section>
+        <section class="splash">
+            <div id="splash_content"></div>
 
-        <template id="splash_tmpl">
-            <article id="splash">
+        </section>
+        <section class="quote_1">
+            <div id=quote1_content></div>
+        </section>
+        <div Class="container">
+            <section id="summer">
+                <div id=summer_content></div>
+            </section>
+            <section class="vinter">
+                <div id=vinter_content></div>
+            </section>
+        </div>
+        <section class="quote_2">
+            <div id=quote2_content></div>
+        </section>
+        <section class="find_your_course">
+            <div id=finde_course_content></div>
+        </section>
+        <section class="quote_3">
+            <div id=quote3_content></div>
+        </section>
+        <section class="travel_with">
+            <div id=travel_content></div>
+        </section>
+
+
+        <template id="course_tmpl1">
+            <article class="course">
                 <img src="" alt="">
-                <h1></h1>
-            </article>
-            <article>
-
+                <h3></h3>
             </article>
         </template>
 
-        <template id="quote_tmpl">
-            <article>
-                <h3></h3>
+        <template id="course_tmpl2">
+            <article class="school_quote">
+                <h2></h2>
                 <p></p>
             </article>
         </template>
-        <template id="summer_vinter_tmpl">
-            <article>
-
-            </article>
-        </template>
-        <template id="find_your_course_tmpl"></template>
-        <template id="travel_with_tmpl"></template>
-
-
 
     </main>
 
@@ -86,41 +110,141 @@
         "use strict"
 
         let thePage;
-        let theStudentQuote;
+        let theSchoolQuote;
         let theCourse;
+        let tmpl1 = document.querySelector("#course_tmpl1").content;
+        let tmpl2 = document.querySelector("#course_tmpl2").content;
+        let courseElm = document.querySelector("#finde_course_content");
+        let dest;
 
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
             console.log("start");
-            getThePages();
+            getTheSplash();
+            getThePageSummer();
+            getThePageVinter();
+            getThePageTravel();
+            getTheCourse();
             getTheQuote();
         }
 
-        async function getThePages() {
-            console.log("getTheCategories");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages?per_page=50";
+
+        //done
+        // Henter WP pagen Højskole Splash
+        async function getTheSplash() {
+            console.log("getThePages");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/125";
             let jsonData = await fetch(url);
-            thePage = await jsonData.json();
+            let json = await jsonData.json();
+            showSplash(json);
+        }
+
+        function showSplash(data) {
+            console.log(data);
+            document.querySelector("#splash_content").innerHTML = data.content.rendered;
+        }
+
+        // done
+        // Henter WP pagen Højskole sommer
+        async function getThePageSummer() {
+            console.log("getThePageSummer");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/236";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            showPageSummer(json);
+        }
+
+        function showPageSummer(data) {
+            console.log(data);
+            document.querySelector("#summer_content").innerHTML = data.content.rendered;
         }
 
 
+        //done
+        // Henter WP pagen Højskole vinter
+        async function getThePageVinter() {
+            console.log("getThePageVinter");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/263";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            showPageVinter(json);
+        }
 
+        function showPageVinter(data) {
+            console.log(data);
+            document.querySelector("#vinter_content").innerHTML = data.content.rendered;
+        }
+
+
+        //done
+        // Henter WP pagen Højskole rejser
+        async function getThePageTravel() {
+            console.log("getThePageTravel");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/285";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            showPageTravel(json);
+        }
+
+        function showPageTravel(data) {
+            console.log(data);
+            document.querySelector("#travel_content").innerHTML = data.content.rendered;
+        }
+
+
+        // Henter skole citaterne
         async function getTheQuote() {
             console.log("getTheCourses");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat";
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/hoejskolecitat";
             let jsonData = await fetch(url);
-            theStudentQuote = await jsonData.json();
-            console.log("LOADING DONE");
-            console.log(theStudentQuote);
-
+            theSchoolQuote = await jsonData.json();
+            console.log(theSchoolQuote);
+            showTheSchoolQuote(theSchoolQuote);
         }
 
-        async function getThePages() {
+        function showTheSchoolQuote(schoolQuotes) {
+            console.log(schoolQuotes);
+
+
+            schoolQuotes.forEach(schoolQuote => {
+                if (schoolQuote.id == "305") {
+                    let clone = tmpl2.cloneNode(true).content;
+                    clone.querySelector("h2").textContent = schoolQuote.title.rendered;
+                    clone.querySelector("p").textContent = course.vaerdisaet;
+                    dest2.appendChild(schoolQuote.id)
+                }
+            })
+        }
+
+
+
+
+
+        // Done
+        // Henter alle fagene
+        async function getTheCourse() {
             console.log("getTheCategories");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages?per_page=50";
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
             let jsonData = await fetch(url);
-            thePage = await jsonData.json();
+            theCourse = await jsonData.json();
+            console.log(theCourse);
+            showTheCourses(theCourse);
+        }
+
+        function showTheCourses(courses) {
+            console.log(courses);
+
+            courses.forEach(course => {
+                const clone = tmpl1.cloneNode(true);
+                dest
+                clone.querySelector("img").src = course.billede_1.guid;
+                clone.querySelector("h3").textContent = course.title.rendered;
+                courseElm.appendChild(clone);
+
+
+            })
+
         }
     </script>
 </body></html>
