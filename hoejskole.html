@@ -60,14 +60,13 @@
 
 
     <main>
-
         <section class="splash">
             <div id="splash_content"></div>
 
         </section>
 
-        <section class="quote_1">
-            <div id=quote1_content></div>
+        <section id="quote_1">
+            <article class="quote"></article>
         </section>
 
         <div Class="container">
@@ -79,16 +78,16 @@
             </section>
         </div>
 
-        <section class="quote_2">
-            <div id=quote2_content></div>
+        <section id="quote_2">
+            <article class="quote"></article>
         </section>
 
         <section class="find_your_course">
             <div id=finde_course_content></div>
         </section>
 
-        <section class="quote_3">
-            <div id=quote3_content></div>
+        <section id="quote_3">
+            <article class="quote"></article>
         </section>
 
         <section class="travel_with">
@@ -96,16 +95,9 @@
         </section>
 
 
-        <template id="course_tmpl1">
-            <article class="course">
-                <img src="" alt="">
+        <template id="student_quote_tmpl2">
+            <article class="quote">
                 <h3></h3>
-            </article>
-        </template>
-
-        <template id="school_quote_tmpl2">
-            <article class="school_quote">
-                <h2></h2>
                 <p></p>
             </article>
         </template>
@@ -121,22 +113,19 @@
 
         let thePage;
         let theSchoolQuote;
-
-        let tmpl1 = document.querySelector("#course_tmpl1").content;
-        let tmpl2 = document.querySelector("#school_quote_tmpl2").content;
-
         let dest;
 
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
             console.log("start");
+            getTheQuote();
             getTheSplash();
             getThePageSummer();
             getThePageVinter();
-            getThePageTravel();
             getTheCourse();
-            getTheQuote();
+            getThePageTravel();
+
         }
 
 
@@ -148,6 +137,7 @@
             let jsonData = await fetch(url);
             let json = await jsonData.json();
             document.querySelector("#splash_singleview").style.backgroundImage = `url(${json.splash.guid})`;
+            document.querySelector("h1").textContent = json.splash_overskrift;
             showSplash(json);
         }
 
@@ -194,6 +184,20 @@
             document.querySelector("#vinter_content").innerHTML = data.content.rendered;
         }
 
+        //done
+        // Henter WP pagen Højskole Kurser
+        async function getTheCourse() {
+            console.log("getThePageTravel");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/270";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            showPageCourse(json);
+        }
+
+        function showPageCourse(data) {
+            console.log(data);
+            document.querySelector("#finde_course_content").innerHTML = data.content.rendered;
+        }
 
         //done
         // Henter WP pagen Højskole rejser
@@ -211,32 +215,47 @@
         }
 
 
-        // Henter skole citaterne
+        //done
+        // Henter elev citaterne
         async function getTheQuote() {
-            console.log("getTheCourses");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/hoejskolecitat";
+            console.log("getTheQuote");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat";
             let jsonData = await fetch(url);
-            theSchoolQuote = await jsonData.json();
-            console.log(theSchoolQuote);
-            showTheSchoolQuote(theSchoolQuote);
+            let theStudentQuote = await jsonData.json();
+            console.log(theStudentQuote);
+            showTheStudentQuote(theStudentQuote);
         }
 
-        function showTheSchoolQuote(schoolQuotes) {
-            console.log(schoolQuotes);
-            let dest = document.querySelector("#quote1_content");
-            dest.innerHTML = "";
+        function showTheStudentQuote(studentQuotes) {
+            let dest1 = document.querySelector("#quote_1 .quote");
+            let dest2 = document.querySelector("#quote_2 .quote");
+            let dest3 = document.querySelector("#quote_3 .quote");
+            let tmpl2 = document.querySelector("#student_quote_tmpl2");
 
-            let clone = tmpl2.cloneNode(true).content;
+            dest1.innerHTML = "";
+            dest2.innerHTML = "";
+            dest3.innerHTML = "";
 
-
-            schoolQuotes.forEach(schoolQuote => {
-
-                if (schoolQuote.id == "305") {
-
-                    clone.querySelector("h2").textContent = schoolQuote.title.rendered;
-                    clone.querySelector("p").textContent = schoolQuote.vaerdisaet;
-                    dest.appendChild(schoolQuote.id);
+            studentQuotes.forEach(studentQuote => {
+                if (studentQuote.id == "303") {
+                    let clone = tmpl2.cloneNode(true).content;
+                    clone.querySelector("h3").textContent = studentQuote.citat;
+                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    dest1.appendChild(clone);
                 }
+                if (studentQuote.id == "302") {
+                    let clone = tmpl2.cloneNode(true).content;
+                    clone.querySelector("h3").textContent = studentQuote.citat;
+                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    dest2.appendChild(clone);
+                }
+                if (studentQuote.id == "300") {
+                    let clone = tmpl2.cloneNode(true).content;
+                    clone.querySelector("h3").textContent = studentQuote.citat;
+                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    dest3.appendChild(clone);
+                }
+
             })
         }
     </script>
