@@ -54,6 +54,10 @@
             </div>
         </nav>
     </header>
+    <section id="splash_singleview">
+        <h1></h1>
+    </section>
+
 
     <main>
 
@@ -61,26 +65,32 @@
             <div id="splash_content"></div>
 
         </section>
+
         <section class="quote_1">
             <div id=quote1_content></div>
         </section>
+
         <div Class="container">
             <section id="summer">
                 <div id=summer_content></div>
             </section>
-            <section class="vinter">
+            <section id="vinter">
                 <div id=vinter_content></div>
             </section>
         </div>
+
         <section class="quote_2">
             <div id=quote2_content></div>
         </section>
+
         <section class="find_your_course">
             <div id=finde_course_content></div>
         </section>
+
         <section class="quote_3">
             <div id=quote3_content></div>
         </section>
+
         <section class="travel_with">
             <div id=travel_content></div>
         </section>
@@ -93,7 +103,7 @@
             </article>
         </template>
 
-        <template id="course_tmpl2">
+        <template id="school_quote_tmpl2">
             <article class="school_quote">
                 <h2></h2>
                 <p></p>
@@ -111,10 +121,10 @@
 
         let thePage;
         let theSchoolQuote;
-        let theCourse;
+
         let tmpl1 = document.querySelector("#course_tmpl1").content;
-        let tmpl2 = document.querySelector("#course_tmpl2").content;
-        let courseElm = document.querySelector("#finde_course_content");
+        let tmpl2 = document.querySelector("#school_quote_tmpl2").content;
+
         let dest;
 
         document.addEventListener("DOMContentLoaded", start);
@@ -137,12 +147,14 @@
             let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/125";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
+            document.querySelector("#splash_singleview").style.backgroundImage = `url(${json.splash.guid})`;
             showSplash(json);
         }
 
         function showSplash(data) {
             console.log(data);
             document.querySelector("#splash_content").innerHTML = data.content.rendered;
+
         }
 
         // done
@@ -152,6 +164,9 @@
             let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/236";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
+
+            //henter baggrundsbillede
+            document.querySelector("#summer").style.backgroundImage = `url(${json.baggrundsbillede.guid})`;
             showPageSummer(json);
         }
 
@@ -168,6 +183,9 @@
             let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/263";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
+
+            //henter baggrundsbillede
+            document.querySelector("#vinter").style.backgroundImage = `url(${json.baggrundsbillede.guid})`;
             showPageVinter(json);
         }
 
@@ -205,46 +223,21 @@
 
         function showTheSchoolQuote(schoolQuotes) {
             console.log(schoolQuotes);
+            let dest = document.querySelector("#quote1_content");
+            dest.innerHTML = "";
+
+            let clone = tmpl2.cloneNode(true).content;
 
 
             schoolQuotes.forEach(schoolQuote => {
+
                 if (schoolQuote.id == "305") {
-                    let clone = tmpl2.cloneNode(true).content;
+
                     clone.querySelector("h2").textContent = schoolQuote.title.rendered;
-                    clone.querySelector("p").textContent = course.vaerdisaet;
-                    dest2.appendChild(schoolQuote.id)
+                    clone.querySelector("p").textContent = schoolQuote.vaerdisaet;
+                    dest.appendChild(schoolQuote.id);
                 }
             })
-        }
-
-
-
-
-
-        // Done
-        // Henter alle fagene
-        async function getTheCourse() {
-            console.log("getTheCategories");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
-            let jsonData = await fetch(url);
-            theCourse = await jsonData.json();
-            console.log(theCourse);
-            showTheCourses(theCourse);
-        }
-
-        function showTheCourses(courses) {
-            console.log(courses);
-
-            courses.forEach(course => {
-                const clone = tmpl1.cloneNode(true);
-                dest
-                clone.querySelector("img").src = course.billede_1.guid;
-                clone.querySelector("h3").textContent = course.title.rendered;
-                courseElm.appendChild(clone);
-
-
-            })
-
         }
     </script>
 </body></html>
