@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fag | Idrætshøjskolen Sønderborg</title>
+    <title></title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -41,7 +41,7 @@
 
     <!-- Splashbillede og overskrift -->
     <section id="splash_fag">
-        <h1>Find spændende fag, der matcher din smag</h1>
+        <h1></h1>
         <button>Jeg er en knap.</button>
     </section>
 
@@ -49,8 +49,7 @@
     <main>
         <section id="intro_fag">
             <article>
-                <h2>Udforsk fagene</h2>
-                <p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</p>
+
             </article>
             <div class="buttons_semester"></div>
             <nav class="buttons_categories">
@@ -101,6 +100,7 @@
     <script>
         "use strict"
 
+        let thePage;
         let theCategories;
         let theCourses;
 
@@ -108,6 +108,20 @@
 
         function start() {
             console.log("start");
+            getThePage();
+        }
+
+        async function getThePage() {
+            console.log("getThePage");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/225";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+
+            document.querySelector("title").textContent = thePage.title.rendered + " | Idrætshøjskolen Sønderborg";
+            document.querySelector("h1").textContent = thePage.splash_overskrift;
+            document.querySelector("#intro_fag article").innerHTML = thePage.content.rendered;
+
+
             getTheCategories();
         }
 
@@ -118,7 +132,6 @@
             theCategories = await jsonData.json();
 
             generateCategoryButtons();
-
             getTheCourses();
         }
 
@@ -136,6 +149,11 @@
             document.querySelector("#interessefag").style.display = "block";
             document.querySelector("#faellesfag").style.display = "block";
             document.querySelector("#specialefag").style.display = "block";
+        }
+
+        function coursesPage() {
+            console.log("coursesPage");
+
         }
 
         function generateCategoryButtons() {
@@ -327,5 +345,8 @@
             console.log(id);
             location.href = "singleview.html?id=" + id;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
