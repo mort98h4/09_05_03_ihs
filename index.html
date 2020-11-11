@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forside | Idrætshøjskolen Sønderborg</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        #course {
+            grid-area: scrollbtn;
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem;
+            overflow-x: scroll;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -74,6 +85,7 @@
         <section id="categories">
             <h2>Udforsk fagene</h2>
             <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
+            <div id="course"></div>
             <template class="category_template">
                 <article class="category">
                     <img src="" alt="">
@@ -91,5 +103,46 @@
         Københanvs Erhvervsakademi/KEA
         Caseopgave for Idrætshøjskolen Sønderborg/IHS
     </footer>
-    <script src="script.js"></script>
-</body></html>
+    <script>
+        "use strict"
+
+        let tmpl1 = document.querySelector(".category_template").content;
+        let courseElm = document.querySelector("#course");
+        let theCourse;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("start");
+            getTheCourse();
+
+        }
+
+        // Henter alle fagene
+        async function getTheCourse() {
+            console.log("getTheCategories");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
+            let jsonData = await fetch(url);
+            theCourse = await jsonData.json();
+            console.log(theCourse);
+            showTheCourses(theCourse);
+        }
+
+        function showTheCourses(courses) {
+            console.log(courses);
+
+            courses.forEach(course => {
+                const clone = tmpl1.cloneNode(true);
+                clone.querySelector("img").src = course.billede_1.guid;
+                clone.querySelector("h3").textContent = course.title.rendered;
+                courseElm.appendChild(clone);
+
+
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>
