@@ -4,12 +4,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>| Idrætshøjskolen Sønderborg</title>
+    <title></title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #breadcrumb {
+            width: 100%;
+            background-color: white;
+            display: flex;
+        }
+
+        .course {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .column_left {
+            display: flex;
+            flex-wrap: wrap;
+            flex-basis: 400px;
+            flex-grow: 1;
+        }
+
+        .column_right {
+            flex-basis: 400px;
+            flex-grow: 1;
+        }
+
+        .column_bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .column_bottom img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin: 5px;
+        }
+
+    </style>
 </head>
 
 <body>
-    <!-- Global menu -->
     <!-- Global menu -->
     <header>
         <nav id="menu">
@@ -45,11 +82,15 @@
     </section>
     <!-- Indhold for et specifikt fag, data hentes via JSON -->
     <main>
-        <div class="back">X</div>
+        <section id="breadcrumb">
+            <a href="index.html">Forside </a>
+            <span>-</span><a href="hoejskole.html"> Højskole </a>
+            <span>-</span><a href="fag.html"> Fag </a>
+            <span>-</span><a class="bc_link" href=""><span class="bc_text"></span></a>
+        </section>
         <section class="course">
             <div class="column_left">
                 <div class="column_top">
-                    <h2></h2>
                     <p></p>
                 </div>
                 <div class="column_bottom">
@@ -65,6 +106,7 @@
                 <img class="image_large" src="" alt="">
             </div>
         </section>
+        <div class="back"><span class="back_arrow">ᐸ</span> Tilbage</div>
     </main>
     <!-- Global footer -->
     <footer>
@@ -88,9 +130,12 @@
             let jsonData = await fetch(url);
             theCourse = await jsonData.json();
 
+            document.querySelector("title").textContent = theCourse.title.rendered + " | Idrætshøjskolen Sønderborg";
+            document.querySelector("#splash_singleview").style.backgroundImage = `url(${theCourse.billede_1.guid})`;
             document.querySelector("h1").textContent = theCourse.title.rendered;
-            document.querySelector("h2").textContent = theCourse.title.rendered;
-            document.querySelector("p").innerHTML = theCourse.beskrivelse;
+            document.querySelector(".bc_link").href = "singleview.html?id=" + theCourse.id;
+            document.querySelector(".bc_text").textContent = ` ${theCourse.title.rendered}`;
+            document.querySelector(".column_top p").innerHTML = theCourse.beskrivelse;
             document.querySelector(".image_1").src = theCourse.billede_1.guid;
             document.querySelector(".image_2").src = theCourse.billede_2.guid;
             document.querySelector(".image_3").src = theCourse.billede_3.guid;
@@ -112,5 +157,8 @@
         document.querySelector(".back").addEventListener("click", function() {
             window.history.back();
         });
+
     </script>
-</body></html>
+</body>
+
+</html>

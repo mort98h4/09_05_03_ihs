@@ -118,6 +118,7 @@
             thePage = await jsonData.json();
 
             document.querySelector("title").textContent = thePage.title.rendered + " | Idrætshøjskolen Sønderborg";
+            document.querySelector("#splash_fag").style.backgroundImage = `url(${thePage.splash.guid})`;
             document.querySelector("h1").textContent = thePage.splash_overskrift;
             document.querySelector("#intro_fag article").innerHTML = thePage.content.rendered;
 
@@ -345,8 +346,5 @@
             console.log(id);
             location.href = "singleview.html?id=" + id;
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
