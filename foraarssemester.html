@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #course {
+            grid-area: scrollbtn;
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem;
+            overflow-x: scroll;
+        }
+
+
+        #splash {
+            width: 100vw;
+            height: 50vh;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Global menu -->
+    <header>
+        <nav id="menu">
+            <img id="logo" src="ihs_billedgalleri/logo.png">
+            <div class="nav_links">
+                <div class="dropdown">
+                    <a class="drop_button" href="hoejskole.html">Højskole <span class="dropdown_arrow">▼</span></a>
+                    <div class="dropdown_content">
+                        <a href="foraarssemester.html">Forårssemester</a>
+                        <a href="efteraarssemester.html">Efterårssemester</a>
+                        <a href="">Linjefag</a>
+                        <a href="fag.html">Fag</a>
+                        <a href="rejser.html">Rejser</a>
+                        <a href="priser.html">Priser</a>
+                    </div>
+                </div>
+                <a href="">Ugekurser</a>
+                <a href="">Erhverv</a>
+                <a href="">Om IHS</a>
+                <a href="">Kontakt</a>
+                <a href="">Tilmeld</a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        <section id="splash">
+            <h1></h1>
+        </section>
+        <main>
+            <section class="splash">
+                <div id="splash_content"></div>
+
+            </section>
+
+            <section id="quote_1">
+                <article class="quote"></article>
+            </section>
+
+            <section id="course_section">
+                <h2>Udforsk fagene</h2>
+                <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
+                <div id="course"></div>
+            </section>
+
+            <section id="schedule">
+                <article class="schedule"></article>
+            </section>
+
+            <section id="quote_2">
+                <article class="quote"></article>
+            </section>
+
+            <section class="travel_with">
+                <div id=travel_content></div>
+            </section>
+
+            <template class="course_template">
+                <article class="category">
+                    <img src="" alt="">
+                    <h3 class="title"></h3>
+                    <p class="short_text"></p>
+                </article>
+            </template>
+
+            <template id="student_quote_tmpl2">
+                <article class="quote">
+                    <h3></h3>
+                    <p></p>
+                </article>
+            </template>
+
+        </main>
+        <footer>
+            Gruppe 1
+            Silje, Sara, Siw, Christian & Morten
+            Københanvs Erhvervsakademi/KEA
+            Caseopgave for Idrætshøjskolen Sønderborg/IHS
+        </footer>
+    </header>
+    <script>
+        "use strict"
+
+        let tmpl1 = document.querySelector(".course_template").content;
+        let courseElm = document.querySelector("#course");
+        let theCourse;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("start");
+            getTheCourse();
+            getTheSplash();
+            getThePageTravel();
+            getTheQuote();
+
+        }
+
+        //Virker men skal hente noget andet
+        async function getTheSplash() {
+            console.log("getThePages");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/125";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            document.querySelector("#splash").style.backgroundImage = `url(${json.splash.guid})`;
+            document.querySelector("h1").textContent = json.splash_overskrift;
+            showSplash(json);
+        }
+
+        function showSplash(data) {
+            console.log(data);
+            document.querySelector("#splash_content").innerHTML = data.content.rendered;
+
+        }
+
+        async function getTheQuote() {
+            console.log("getTheQuote");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat";
+            let jsonData = await fetch(url);
+            let theStudentQuote = await jsonData.json();
+            console.log(theStudentQuote);
+            showTheStudentQuote(theStudentQuote);
+        }
+
+        function showTheStudentQuote(studentQuotes) {
+            let dest1 = document.querySelector("#quote_1 .quote");
+            let dest2 = document.querySelector("#quote_2 .quote");
+
+            let tmpl2 = document.querySelector("#student_quote_tmpl2");
+
+            dest1.innerHTML = "";
+            dest2.innerHTML = "";
+
+
+            studentQuotes.forEach(studentQuote => {
+                if (studentQuote.id == "298") {
+                    let clone = tmpl2.cloneNode(true).content;
+                    clone.querySelector("h3").textContent = studentQuote.citat;
+                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    dest1.appendChild(clone);
+                }
+                if (studentQuote.id == "297") {
+                    let clone = tmpl2.cloneNode(true).content;
+                    clone.querySelector("h3").textContent = studentQuote.citat;
+                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    dest2.appendChild(clone);
+                }
+
+            })
+        }
+
+
+        //done
+        // Henter alle fagene
+        async function getTheCourse() {
+            console.log("getTheCourse");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?tags";
+            let jsonData = await fetch(url);
+            theCourse = await jsonData.json();
+            console.log(theCourse);
+            showTheCourses(theCourse);
+        }
+
+        function showTheCourses(courses) {
+            console.log(courses);
+
+            courses.forEach(course => {
+                const clone = tmpl1.cloneNode(true);
+                clone.querySelector("img").src = course.billede_1.guid;
+                clone.querySelector("h3").textContent = course.title.rendered;
+                courseElm.appendChild(clone);
+            })
+
+        }
+
+        //done
+        // Henter WP pagen Højskole rejser
+        async function getThePageTravel() {
+            console.log("getThePageTravel");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/285";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            showPageTravel(json);
+        }
+
+        function showPageTravel(data) {
+            console.log(data);
+            document.querySelector("#travel_content").innerHTML = data.content.rendered;
+        }
+    </script>
+</body></html>
