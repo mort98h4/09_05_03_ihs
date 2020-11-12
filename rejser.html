@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #splash_rejser {
+            width: 100vw;
+            height: 50vh;
+            background-size: cover;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -37,5 +46,173 @@
             </div>
         </nav>
     </header>
+    <section id="splash_rejser">
+        <h1></h1>
+    </section>
+    <main>
+        <section id="intro_rejser">
+        </section>
+        <section id="rejser_buttons">
+            <!--<div class="test"></div>-->
+        </section>
+        <section id="rejser"></section>
+    </main>
+    <!-- Templates -->
+    <template id="filter_journey_tmpl">
+        <div class="rejse">
+            <div class="rejse_info">
+                <h2></h2>
+                <p>Klik og læs mere</p>
+            </div>
+        </div>
+    </template>
+    <template id="journey_tmpl">
+        <article class="journey">
+            <div class="column_left">
+                <img src="" alt="">
+            </div>
+            <div class="column_right">
+                <div class="column_top">
+                    <h2></h2>
+                    <p></p>
+                </div>
+                <div class="column_bottom">
+                    <h3></h3>
+                    <div class="price_info">
+                        <p class="price_text"></p>
+                        <p class="price"></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </template>
+
     <script src="script.js"></script>
-</body></html>
+    <script>
+        "use strict"
+
+        let thePage;
+        let theJourneys;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("start");
+            getThePage();
+        }
+
+        async function getThePage() {
+            console.log("getThePage");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/230";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+
+            document.querySelector("title").textContent = thePage.title.rendered + " | Idrætshøjskolen Sønderborg";
+            document.querySelector("#splash_rejser").style.backgroundImage = `url(${thePage.splash.guid})`;
+            document.querySelector("h1").textContent = thePage.splash_overskrift;
+            document.querySelector("#intro_rejser").innerHTML = thePage.content.rendered;
+
+            getTheJourneys();
+        }
+
+        async function getTheJourneys() {
+            console.log("getTheJourneys");
+
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/rejse";
+            let jsonData = await fetch(url);
+            theJourneys = await jsonData.json();
+            console.log("LOADING DONE");
+            console.log(theJourneys);
+
+            let dest = document.querySelector("#rejser_buttons");
+            let temp = document.querySelector("#filter_journey_tmpl");
+            dest.innerHTML = "";
+
+
+            theJourneys.forEach(journey => {
+                let clone = temp.cloneNode(true).content;
+                clone.querySelector(".rejse").style.backgroundImage = `url(${journey.billede_1.guid})`;
+                clone.querySelector("h2").innerHTML = journey.title.rendered;
+                clone.querySelector(".rejse").dataset.id = journey.id;
+                clone.querySelector(".rejse").addEventListener("click", journeyClick);
+
+                dest.appendChild(clone);
+
+                function journeyClick() {
+                    console.log(this.dataset.id);
+                    let dest = document.querySelector("#rejser")
+                    let temp = document.querySelector("#journey_tmpl");
+                    dest.innerHTML = "";
+
+                    if (this.dataset.id == "161") {
+                        let clone = temp.cloneNode(true).content;
+                        clone.querySelector("img").src = journey.billede_1.guid;
+                        clone.querySelector("h2").textContent = journey.title.rendered;
+                        clone.querySelector("p").innerHTML = journey.beskrivelse;
+                        dest.appendChild(clone);
+                    }
+
+                    if (this.dataset.id == "154") {
+                        let clone = temp.cloneNode(true).content;
+                        clone.querySelector("img").src = journey.billede_1.guid;
+                        clone.querySelector("h2").textContent = journey.title.rendered;
+                        clone.querySelector("p").innerHTML = journey.beskrivelse;
+                        dest.appendChild(clone);
+                    }
+
+                    if (this.dataset.id == "147") {
+                        let clone = temp.cloneNode(true).content;
+                        clone.querySelector("img").src = journey.billede_1.guid;
+                        clone.querySelector("h2").textContent = journey.title.rendered;
+                        clone.querySelector("p").innerHTML = journey.beskrivelse;
+                        dest.appendChild(clone);
+                    }
+
+                    if (this.dataset.id == "140") {
+                        let clone = temp.cloneNode(true).content;
+                        clone.querySelector("img").src = journey.billede_1.guid;
+                        clone.querySelector("h2").innerHTML = journey.title.rendered;
+                        clone.querySelector("p").innerHTML = journey.beskrivelse;
+                        dest.appendChild(clone);
+                    }
+                }
+
+            });
+            //filterContent("alle");
+
+        }
+
+
+
+        //function filterContent(theFilter) {
+        //console.log("filterContent");
+        //let filtered;
+        //document.querySelector(".test").dataset.id = "alle";
+        //if (theFilter == "alle") {
+        //filtered = theJourneys;
+        //} else {
+        //filtered = theJourneys.filter(journey => //journey.categories[0] == theFilter);
+        //}
+
+        //console.log(filtered);
+        //showJourneys(filtered);
+        //}
+
+        //function showJourneys(theFilteredJson) {
+        //console.log("showJourneys");
+        //let dest = document.querySelector("#rejser")
+        //let temp = document.querySelector("#journey_tmpl");
+        //dest.innerHTML = "";
+
+        //theFilteredJson.forEach(journey => {
+        //let clone = temp.cloneNode(true).content;
+
+        //clone.querySelector("img").src = journey.billede_1.guid;
+        //dest.appendChild(clone);
+        //})
+        //}
+
+    </script>
+</body>
+
+</html>
