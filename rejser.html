@@ -6,14 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        #splash_rejser {
-            width: 100vw;
-            height: 50vh;
-            background-size: cover;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -46,17 +38,41 @@
             </div>
         </nav>
     </header>
+
+    <!-- Splashbillede og overskrift -->
     <section id="splash_rejser">
         <h1></h1>
     </section>
+
+    <!-- Indhold på rejser siden -->
     <main>
         <section id="intro_rejser">
         </section>
         <section id="rejser_buttons">
-            <!--<div class="test"></div>-->
         </section>
-        <section id="rejser"></section>
+        <section id="rejser">
+            <article>
+                <div class="column_left">
+                    <img src="" alt="">
+                </div>
+                <div class="column_right">
+                    <div class="column_top">
+                        <h2></h2>
+                        <p class="description"></p>
+                    </div>
+                    <div class="column_bottom">
+                        <h3 class="price_header"></h3>
+
+                        <div class="price_info">
+                            <p class="price_text"></p>
+                            <p class="price"></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
     </main>
+
     <!-- Templates -->
     <template id="filter_journey_tmpl">
         <div class="rejse">
@@ -65,26 +81,6 @@
                 <p>Klik og læs mere</p>
             </div>
         </div>
-    </template>
-    <template id="journey_tmpl">
-        <article class="journey">
-            <div class="column_left">
-                <img src="" alt="">
-            </div>
-            <div class="column_right">
-                <div class="column_top">
-                    <h2></h2>
-                    <p></p>
-                </div>
-                <div class="column_bottom">
-                    <h3></h3>
-                    <div class="price_info">
-                        <p class="price_text"></p>
-                        <p class="price"></p>
-                    </div>
-                </div>
-            </div>
-        </article>
     </template>
 
     <script src="script.js"></script>
@@ -98,6 +94,7 @@
 
         function start() {
             console.log("start");
+            document.querySelector("#rejser").style.display = "none";
             getThePage();
         }
 
@@ -128,91 +125,34 @@
             let temp = document.querySelector("#filter_journey_tmpl");
             dest.innerHTML = "";
 
+            let dest1 = document.querySelector("#rejser_buttons");
+            let temp1 = document.querySelector("#filter_journey_tmpl");
+            dest1.innerHTML = "";
 
             theJourneys.forEach(journey => {
-                let clone = temp.cloneNode(true).content;
-                clone.querySelector(".rejse").style.backgroundImage = `url(${journey.billede_1.guid})`;
-                clone.querySelector("h2").innerHTML = journey.title.rendered;
-                clone.querySelector(".rejse").dataset.id = journey.id;
-                clone.querySelector(".rejse").addEventListener("click", journeyClick);
+                let clone1 = temp1.cloneNode(true).content;
 
-                dest.appendChild(clone);
+                clone1.querySelector(".rejse").style.backgroundImage = `url(${journey.billede_1.guid})`;
+                clone1.querySelector("h2").innerHTML = journey.title.rendered;
+                clone1.querySelector(".rejse").dataset.id = journey.id;
+                clone1.querySelector(".rejse").addEventListener("click", journeyClick);
 
-                function journeyClick() {
-                    console.log(this.dataset.id);
-                    let dest = document.querySelector("#rejser")
-                    let temp = document.querySelector("#journey_tmpl");
-                    dest.innerHTML = "";
-
-                    if (this.dataset.id == "161") {
-                        let clone = temp.cloneNode(true).content;
-                        clone.querySelector("img").src = journey.billede_1.guid;
-                        clone.querySelector("h2").textContent = journey.title.rendered;
-                        clone.querySelector("p").innerHTML = journey.beskrivelse;
-                        dest.appendChild(clone);
-                    }
-
-                    if (this.dataset.id == "154") {
-                        let clone = temp.cloneNode(true).content;
-                        clone.querySelector("img").src = journey.billede_1.guid;
-                        clone.querySelector("h2").textContent = journey.title.rendered;
-                        clone.querySelector("p").innerHTML = journey.beskrivelse;
-                        dest.appendChild(clone);
-                    }
-
-                    if (this.dataset.id == "147") {
-                        let clone = temp.cloneNode(true).content;
-                        clone.querySelector("img").src = journey.billede_1.guid;
-                        clone.querySelector("h2").textContent = journey.title.rendered;
-                        clone.querySelector("p").innerHTML = journey.beskrivelse;
-                        dest.appendChild(clone);
-                    }
-
-                    if (this.dataset.id == "140") {
-                        let clone = temp.cloneNode(true).content;
-                        clone.querySelector("img").src = journey.billede_1.guid;
-                        clone.querySelector("h2").innerHTML = journey.title.rendered;
-                        clone.querySelector("p").innerHTML = journey.beskrivelse;
-                        dest.appendChild(clone);
-                    }
-                }
-
+                dest1.appendChild(clone1);
             });
-            //filterContent("alle");
-
         }
 
+        function journeyClick() {
+            console.log("journeyClick", this.dataset.id);
+            let fullPost = theJourneys.filter(journey => journey.id == this.dataset.id);
+            console.log("fullPost", fullPost);
+            document.querySelector("#rejser").style.display = "block";
+            document.querySelector("#rejser img").src = fullPost[0].billede_1.guid;
+            document.querySelector("#rejser h2").innerHTML = fullPost[0].title.rendered;
+            document.querySelector("#rejser .description").innerHTML = fullPost[0].beskrivelse;
+            document.querySelector("#rejser .price_header").textContent = "Pris";
+            document.querySelector("#rejser .price_text").textContent = fullPost[0].tekst_rejsepris;
+            document.querySelector("#rejser .price").textContent = fullPost[0].rejsepris + " kr";
 
-
-        //function filterContent(theFilter) {
-        //console.log("filterContent");
-        //let filtered;
-        //document.querySelector(".test").dataset.id = "alle";
-        //if (theFilter == "alle") {
-        //filtered = theJourneys;
-        //} else {
-        //filtered = theJourneys.filter(journey => //journey.categories[0] == theFilter);
-        //}
-
-        //console.log(filtered);
-        //showJourneys(filtered);
-        //}
-
-        //function showJourneys(theFilteredJson) {
-        //console.log("showJourneys");
-        //let dest = document.querySelector("#rejser")
-        //let temp = document.querySelector("#journey_tmpl");
-        //dest.innerHTML = "";
-
-        //theFilteredJson.forEach(journey => {
-        //let clone = temp.cloneNode(true).content;
-
-        //clone.querySelector("img").src = journey.billede_1.guid;
-        //dest.appendChild(clone);
-        //})
-        //}
-
+        }
     </script>
-</body>
-
-</html>
+</body></html>
