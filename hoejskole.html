@@ -21,6 +21,12 @@
             display: flex;
             flex-direction: row;
         }
+
+        #splash {
+            width: 100vw;
+            height: 50vh;
+            background-size: cover;
+        }
     </style>
 </head>
 
@@ -54,7 +60,7 @@
             </div>
         </nav>
     </header>
-    <section id="splash_singleview">
+    <section id="splash">
         <h1></h1>
     </section>
 
@@ -136,7 +142,7 @@
             let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/125";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
-            document.querySelector("#splash_singleview").style.backgroundImage = `url(${json.splash.guid})`;
+            document.querySelector("#splash").style.backgroundImage = `url(${json.splash.guid})`;
             document.querySelector("h1").textContent = json.splash_overskrift;
             showSplash(json);
         }
