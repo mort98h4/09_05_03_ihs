@@ -4,17 +4,199 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forside | Idrætshøjskolen Sønderborg</title>
+    <title></title>
     <link rel="stylesheet" href="style.css">
 
     <style>
-        #course {
-            grid-area: scrollbtn;
-            display: grid;
-            grid-gap: 1rem;
-            grid-template-columns: 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem 20rem;
-            overflow-x: scroll;
+        main {
+            max-width: none;
         }
+
+        #splash_index {
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+        }
+
+        #bg_video {
+            display: none;
+        }
+
+        .splash_buttons_container {
+            /*
+            position: fixed;
+            width: 100vw;
+*/
+
+        }
+
+        .splash_buttons {
+            display: flex;
+            justify-content: flex-end;
+            transform: rotate(90deg);
+            /*
+            position: fixed;
+            right: -58vw;
+            top: 50vh;
+*/
+            /*
+            transform: rotate(90deg);
+            z-index: 1;
+*/
+        }
+
+        .splash_buttons button {
+            position: fixed;
+            color: #fff;
+            height: 50px;
+            width: 250px;
+            margin: 30px;
+            border: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .book {
+            background-color: #f07958;
+        }
+
+        .become {
+            background-color: #f0bd57;
+        }
+
+        #faellesskab {
+            margin: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .faellesskab_group {
+            padding: 50px;
+        }
+
+        .wp-block-video video {
+            max-width: 90vw;
+            height: auto;
+        }
+
+        .wp_button .wp-block-group__inner-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .wp_text_button {
+            padding-bottom: 10px;
+            margin-bottom: 0px;
+            border-bottom: solid 2px orange;
+        }
+
+        .kompetence {
+            margin: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .kompetencer_group {
+            padding: 50px;
+        }
+
+        .index_courses_heading {
+            padding-bottom: 10px;
+            margin-bottom: 0px;
+            border-bottom: solid 2px orange;
+        }
+
+        .courses {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            cursor: pointer;
+        }
+
+        .course {
+            flex-basis: 70%;
+            flex-shrink: 0;
+            height: 30vh;
+            scroll-snap-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .course h3 {
+            color: orange;
+            margin: 10px;
+            padding-bottom: 5px;
+            border-bottom: solid 2px orange;
+        }
+
+        .course_arrow {
+            color: orange;
+            margin: 10px;
+            padding: 5px 10px;
+            border-radius: 100%;
+            border: solid 2px orange;
+        }
+
+        #oplevelser {
+            margin: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .oplevelser_group {
+            padding: 50px;
+        }
+
+        #reviews {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /*.review {
+            display: none;
+        }*/
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 10s;
+        }
+
+        @keyframes fade {
+            0% {
+                transform: translateX(100%);
+            }
+
+            20% {
+                transform: translateX(0%);
+            }
+
+            80% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            #bg_video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: absolute;
+                z-index: -1;
+            }
+
+        }
+
     </style>
 </head>
 
@@ -51,48 +233,56 @@
 
     <!-- Splashbillede og velkomst tekst -->
     <section id="splash_index">
-        <h1>Idrætshøjskolen Sønderborg</h1>
-        <h3>Succesoplevelser for hjernen og hjertet</h3>
-        <button>Jeg er en knap.</button>
+        <video autoplay muted loop id="bg_video" src="">
+            <!--<source class="bg_video" src="" type="video/mp4">-->
+        </video>
+        <h1></h1>
+        <div class="splash_buttons_container">
+            <div class="splash_buttons">
+                <button class="book">Book en rundvisning</button>
+                <button class="become">Blev elev</button>
+            </div>
+        </div>
+        <div class="arrow_down">ᐯ</div>
+    </section>
+    <section id="index_banner">
+
     </section>
 
     <!-- Indhold på forsiden -->
     <main>
 
-        <!-- Introduktion til IHS -->
-        <section id="intro_index">
-            <article>
-                <h2>Fællesskab, kompetencer, oplevelser</h2>
-                <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
-                <img src="" alt="">
+        <!-- Fællesskab sektion -->
+        <section id="faellesskab">
+
+        </section>
+
+        <!-- Kompetence sektion -->
+        <section id="kompetence">
+            <article class="kompetence"></article>
+            <div class="courses"></div>
+        </section>
+        <!-- Oplevelser sektion -->
+        <section id="oplevelser">
+
+        </section>
+
+        <!-- Sektion med "anbefalinger" fra tidligere elever -->
+        <section id="reviews"></section>
+
+        <!-- Templates -->
+        <template class="courses_template">
+            <article class="course">
+                <h3></h3>
+                <div class="course_arrow">ᐳ</div>
             </article>
-        </section>
-
-        <!-- Sektion med anbefalinger fra tidligere elever -->
-        <section id="reviews">
-            <h2>Tidligere studerende mener</h2>
-            <template id="review_template">
-                <article class="review">
-                    <h3 class="name"></h3>
-                    <p class="job"></p>
-                    <p class="short_text"></p>
-                </article>
-            </template>
-        </section>
-
-        <!-- Sektion med de overordnede fag -->
-        <section id="categories">
-            <h2>Udforsk fagene</h2>
-            <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
-            <div id="course"></div>
-            <template class="category_template">
-                <article class="category">
-                    <img src="" alt="">
-                    <h3 class="title"></h3>
-                    <p class="short_text"></p>
-                </article>
-            </template>
-        </section>
+        </template>
+        <template class="review_template">
+            <article class="review fade">
+                <p class="quote">"<span class="quote_content"></span>"</p>
+                <p class="student"></p>
+            </article>
+        </template>
     </main>
 
     <!-- Global footer -->
@@ -146,43 +336,140 @@
 
 
     </footer>
+    <script src="script.js"></script>
     <script>
         "use strict"
 
-        let tmpl1 = document.querySelector(".category_template").content;
-        let courseElm = document.querySelector("#course");
-        let theCourse;
+        let thePage;
+        let theCourses;
+        let theQuotes;
+        let slideIndex = 0;
 
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
             console.log("start");
-            getTheCourse();
+            getTheSplashPage();
 
         }
 
-        // Henter alle fagene
-        async function getTheCourse() {
-            console.log("getTheCategories");
+        async function getTheSplashPage() {
+            console.log("getThePage");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/332";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+            console.log(thePage);
+
+            document.querySelector("title").textContent = thePage.splash_overskrift;
+            document.querySelector("#splash_index").style.backgroundImage = `url(${thePage.baggrundsbillede.guid})`;
+            document.querySelector("#bg_video").src = thePage.splash.guid;
+            document.querySelector("h1").textContent = thePage.splash_overskrift;
+            document.querySelector("#index_banner").innerHTML = thePage.content.rendered;
+            getTheFaellesskabPage();
+        }
+
+        async function getTheFaellesskabPage() {
+            console.log("getTheFaellesskabPage");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/357";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+            console.log(thePage);
+
+            document.querySelector("#faellesskab").innerHTML = thePage.content.rendered;
+
+            getTheKompetencePage();
+        }
+
+        async function getTheKompetencePage() {
+            console.log("getTheKompetencePage");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/371";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+            console.log(thePage);
+
+            document.querySelector(".kompetence").innerHTML = thePage.content.rendered;
+
+            getTheOplevelserPage();
+            getTheCourses();
+        }
+
+        async function getTheCourses() {
+            console.log("getTheCourses");
             let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
             let jsonData = await fetch(url);
-            theCourse = await jsonData.json();
-            console.log(theCourse);
-            showTheCourses(theCourse);
+            theCourses = await jsonData.json();
+            console.log(theCourses);
+
+            showCourses();
         }
 
-        function showTheCourses(courses) {
-            console.log(courses);
+        async function getTheOplevelserPage() {
+            console.log("getTheOplevelserPage");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/383";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+            console.log(thePage);
 
-            courses.forEach(course => {
-                const clone = tmpl1.cloneNode(true);
-                clone.querySelector("img").src = course.billede_1.guid;
+            document.querySelector("#oplevelser").innerHTML = thePage.content.rendered;
+
+            getTheQuotes();
+        }
+
+        async function getTheQuotes() {
+            console.log("getTheQuotes");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat?per_page=100";
+            let jsonData = await fetch(url);
+            theQuotes = await jsonData.json();
+            console.log(theQuotes);
+            console.log("LOADING DONE");
+            showQuotes();
+        }
+
+        function showCourses() {
+            console.log("showCourses");
+            let dest = document.querySelector(".courses");
+            let temp = document.querySelector(".courses_template");
+
+            dest.innerHTML = "";
+
+            theCourses.forEach(course => {
+                let clone = temp.cloneNode(true).content;
+                clone.querySelector(".course").style.backgroundImage = `url(${course.billede_1.guid})`;
                 clone.querySelector("h3").textContent = course.title.rendered;
-                courseElm.appendChild(clone);
 
+                dest.appendChild(clone);
+            })
+        }
 
+        function showQuotes() {
+            console.log("showQuotes");
+            let dest = document.querySelector("#reviews");
+            let temp = document.querySelector(".review_template");
+
+            dest.innerHTML = "";
+
+            theQuotes.forEach(quote => {
+                let clone = temp.cloneNode(true).content;
+
+                clone.querySelector(".quote_content").textContent = quote.citat;
+                clone.querySelector(".student").textContent = "- " + quote.elev;
+
+                dest.appendChild(clone);
             })
 
+            let slides = document.getElementsByClassName("review");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showQuotes, 10000);
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
