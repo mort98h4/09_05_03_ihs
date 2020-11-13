@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Forårssemester | Idrætshøjskolen Sønderborg</title>
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -21,6 +21,11 @@
             width: 100vw;
             height: 50vh;
             background-size: cover;
+        }
+
+        .travel_with .wp-block-columns {
+            display: flex;
+            flex-direction: row;
         }
     </style>
 </head>
@@ -54,60 +59,103 @@
                 <div class="line3"></div>
             </div>
         </nav>
-        <section id="splash">
-            <h1></h1>
-        </section>
-        <main>
-            <section class="splash">
-                <div id="splash_content"></div>
 
-            </section>
-
-            <section id="quote_1">
-                <article class="quote"></article>
-            </section>
-
-            <section id="course_section">
-                <h2>Udforsk fagene</h2>
-                <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
-                <div id="course"></div>
-            </section>
-
-            <section id="schedule">
-                <article class="schedule"></article>
-            </section>
-
-            <section id="quote_2">
-                <article class="quote"></article>
-            </section>
-
-            <section class="travel_with">
-                <div id=travel_content></div>
-            </section>
-
-            <template class="course_template">
-                <article class="category">
-                    <img src="" alt="">
-                    <h3 class="title"></h3>
-                    <p class="short_text"></p>
-                </article>
-            </template>
-
-            <template id="student_quote_tmpl2">
-                <article class="quote">
-                    <h3></h3>
-                    <p></p>
-                </article>
-            </template>
-
-        </main>
-        <footer>
-            Gruppe 1
-            Silje, Sara, Siw, Christian & Morten
-            Københanvs Erhvervsakademi/KEA
-            Caseopgave for Idrætshøjskolen Sønderborg/IHS
-        </footer>
     </header>
+    <section id="splash">
+        <h1></h1>
+    </section>
+    <main>
+        <section class="splash">
+            <div id="splash_content"></div>
+
+        </section>
+
+        <section id="quote_1">
+            <article class="quote"></article>
+        </section>
+
+        <section id="course_section">
+            <h2>Udforsk fagene</h2>
+            <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.</p>
+            <div id="course"></div>
+        </section>
+
+        <section id="schedule">
+            <div id="schedule"></div>
+        </section>
+
+        <section id="quote_2">
+            <article class="quote"></article>
+        </section>
+
+        <section class="travel_with">
+            <div id=travel_content></div>
+        </section>
+
+        <template class="course_template">
+            <article class="category">
+                <img src="" alt="">
+                <h3 class="title"></h3>
+                <p class="short_text"></p>
+            </article>
+        </template>
+
+        <template id="student_quote_tmpl2">
+            <article class="quote">
+                <h3></h3>
+                <p></p>
+            </article>
+        </template>
+
+    </main>
+    <footer class="footer">
+        <div class="footer__text container">
+            <hr class="footer__hr">
+        </div>
+
+        <div class="footer__sections container">
+            <div class="footer__section">
+                <span class="footer__title">Kontakt</span>
+                <a href="#" class="footer__link">Tel: </a>
+                <a href="#" class="footer__link">Mail: info@ihs.dk </a>
+                <a href="#" class="footer__link">Adresse: </a>
+                <a href="#" class="footer__link">By: </a>
+            </div>
+            <div class="footer__section">
+                <span class="footer__title">Sitemap</span>
+                <a href="#" class="footer__link">Højskole</a>
+                <a href="#" class="footer__link">Ugekurser</a>
+                <a href="#" class="footer__link">Erhverv</a>
+                <a href="#" class="footer__link">Tilmelding</a>
+                <a href="#" class="footer__link">Om IHS</a>
+                <a href="#" class="footer__link">Kontakt</a>
+            </div>
+            <div class="footer__section">
+                <span class="footer__title">Sitemap</span>
+                <a href="#" class="footer__link">Forsårshold</a>
+                <a href="#" class="footer__link">Efterårshold</a>
+                <a href="#" class="footer__link">Fag</a>
+                <a href="#" class="footer__link">Priser</a>
+                <a href="#" class="footer__link">FAQ</a>
+            </div>
+            <div class="footer__section">
+                <span class="footer__title">Information</span>
+                <a href="#" class="footer__link">Bestyrelse</a>
+                <a href="#" class="footer__link">Vedtægter</a>
+                <a href="#" class="footer__link">Årsplan</a>
+                <a href="#" class="footer__link">Værdigrundlag</a>
+                <a href="#" class="footer__link">Job</a>
+            </div>
+        </div>
+
+        <div class="footer_social">
+            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Facebook2_colored_svg_5296500.svg" alt="facebook"></a>
+            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Instagram_colored_svg_1_5296765.svg" alt="Instagram"></a>
+            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Youtube_colored_svg_5296521.svg" alt="YouTube"></a>
+            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.svg" alt="linkedin"></a>
+        </div>
+    </footer>
+
     <script>
         "use strict"
 
@@ -119,17 +167,17 @@
 
         function start() {
             console.log("start");
-            getTheCourse();
-            getTheSplash();
-            getThePageTravel();
             getTheQuote();
-
+            getTheSplash();
+            getTheCourse();
+            getThePageSchedule();
+            getThePageTravel();
         }
 
         //Virker men skal hente noget andet
         async function getTheSplash() {
             console.log("getThePages");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/125";
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/244";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
             document.querySelector("#splash").style.backgroundImage = `url(${json.splash.guid})`;
@@ -143,6 +191,7 @@
 
         }
 
+        // henter citaterne
         async function getTheQuote() {
             console.log("getTheQuote");
             let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat";
@@ -166,16 +215,15 @@
                 if (studentQuote.id == "298") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
-                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    clone.querySelector("p").textContent = studentQuote.elev;
                     dest1.appendChild(clone);
                 }
                 if (studentQuote.id == "297") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
-                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    clone.querySelector("p").textContent = studentQuote.elev;
                     dest2.appendChild(clone);
                 }
-
             })
         }
 
@@ -201,6 +249,21 @@
                 courseElm.appendChild(clone);
             })
 
+        }
+
+        //done
+        // Henter WP pagen Højskole skema
+        async function getThePageSchedule() {
+            console.log("getThePageSchedule");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/258";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            showPageSchedule(json);
+        }
+
+        function showPageSchedule(data) {
+            console.log(data);
+            document.querySelector("#schedule").innerHTML = data.content.rendered;
         }
 
         //done
