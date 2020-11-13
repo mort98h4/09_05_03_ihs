@@ -4,29 +4,78 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Højskolen | Idrætshøjskolen Sønderborg</title>
     <link rel="stylesheet" href="style.css">
 
     <style>
+        .blue_back {
+            background-color: darkblue;
+        }
+
+        .white_font {
+            color: white;
+        }
+
+
+
         .splash .wp-block-columns {
             display: flex;
             flex-direction: row;
         }
 
-        .summer .wp-block-column {}
+        .summer_vinter {
+            display: flex;
+            flex-direction: row;
+            height: 50vh;
+        }
 
-        .vinter .wp-block-column {}
 
-        .container {
+        #summer_content,
+        #vinter_content {
+            width: 50vw;
+            background-size: contain;
+        }
+
+        .column_summer,
+        .column_vinter {
             display: flex;
             flex-direction: row;
         }
+
 
         #splash {
             width: 100vw;
             height: 50vh;
             background-size: cover;
         }
+
+        .travel_with .wp-block-columns {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .svg_knap {
+            width: 4rem;
+        }
+
+        .txt_knap {
+            border-bottom: 1px solid black;
+        }
+
+        .svg_knap:hover {
+            color: orange;
+        }
+
+        .txt_knap:hover {
+            border-bottom: 1px solid orange;
+            color: orange;
+        }
+
+        /*font størrelser*/
+        h2 {
+            font-size: 3rem;
+        }
+
     </style>
 </head>
 
@@ -71,15 +120,16 @@
 
         </section>
 
-        <section id="quote_1">
+        <section id="quote_1" class="blue_back white_font">
             <article class="quote"></article>
         </section>
 
-        <div Class="container">
-            <section id="summer">
+        <div Class="summer_vinter blue_back white_font">
+            <section id="summer" id="v" class="i">
                 <div id=summer_content></div>
             </section>
-            <section id="vinter">
+
+            <section id="vinter" id="h" class="i">
                 <div id=vinter_content></div>
             </section>
         </div>
@@ -88,7 +138,7 @@
             <article class="quote"></article>
         </section>
 
-        <section class="find_your_course">
+        <section class="find_your_course blue_back white_font">
             <div id=finde_course_content></div>
         </section>
 
@@ -290,23 +340,26 @@
                 if (studentQuote.id == "303") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
-                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    clone.querySelector("p").textContent = studentQuote.elev;
                     dest1.appendChild(clone);
                 }
                 if (studentQuote.id == "302") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
-                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    clone.querySelector("p").textContent = studentQuote.elev;
                     dest2.appendChild(clone);
                 }
                 if (studentQuote.id == "300") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
-                    clone.querySelector("p").textContent = studentQuote.title.rendered;
+                    clone.querySelector("p").textContent = studentQuote.elev;
                     dest3.appendChild(clone);
                 }
 
             })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
