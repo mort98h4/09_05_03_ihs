@@ -27,6 +27,11 @@
             display: flex;
             flex-direction: row;
         }
+
+        .quotation_begin,
+        .quotation_end {
+            width: 10rem;
+        }
     </style>
 </head>
 
@@ -102,8 +107,10 @@
 
         <template id="student_quote_tmpl2">
             <article class="quote">
+                <img class="quotation_begin" src="" alt="">
                 <h3></h3>
                 <p></p>
+                <img class="quotation_end" src="" alt="">
             </article>
         </template>
 
@@ -216,12 +223,16 @@
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
                     clone.querySelector("p").textContent = studentQuote.elev;
+                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_left.guid;
+                    clone.querySelector(".quotation_end").src = studentQuote.quotation_right.guid;
                     dest1.appendChild(clone);
                 }
                 if (studentQuote.id == "297") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
                     clone.querySelector("p").textContent = studentQuote.elev;
+                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_left.guid;
+                    clone.querySelector(".quotation_end").src = studentQuote.quotation_right.guid;
                     dest2.appendChild(clone);
                 }
             })
