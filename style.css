@@ -162,6 +162,7 @@ img {
     scroll-snap-align: center;
     display: flex;
     align-items: flex-end;
+    background-size: cover;
 }
 
 .rejse_info h2,

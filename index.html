@@ -6,46 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dwn7cem.css">
 
     <style>
         main {
             max-width: none;
         }
 
+        h1 {
+            font-family: abolition, sans-serif;
+            font-size: 5rem;
+        }
+
+        h2 {
+            font-family: abolition, sans-serif;
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-family: abolition, sans-serif;
+            font-size: : 2rem;
+        }
+
+        p {
+            font-family: proxima-nova, sans-serif;
+        }
+
         #splash_index {
             width: 100vw;
             height: 100vh;
             background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .splash_index_heading {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20vh;
+            line-height: .6;
+        }
+
+        .heading_2 {
+            color: #f07958;
+            font-size: 7.2rem;
+        }
+
+        .splash_index_arrow_down {
+            color: #fff;
+            border: solid 2px #fff;
+            border-radius: 100%;
+            padding: 5px 10px;
+            margin-bottom: 100px;
+            align-self: center;
+            cursor: pointer;
         }
 
         #bg_video {
             display: none;
         }
 
-        .splash_buttons_container {
-            /*
+        /*
+        .splash_index_buttons_container {
+
             position: fixed;
             width: 100vw;
-*/
+
 
         }
+*/
 
         .splash_buttons {
+            /*
             display: flex;
             justify-content: flex-end;
             transform: rotate(90deg);
-            /*
+
             position: fixed;
             right: -58vw;
             top: 50vh;
-*/
-            /*
+
+
             transform: rotate(90deg);
-            z-index: 1;
 */
+            z-index: 1;
+
         }
 
         .splash_buttons button {
+            font-family: proxima-nova, sans-serif;
             position: fixed;
             color: #fff;
             height: 50px;
@@ -64,15 +116,36 @@
             background-color: #f0bd57;
         }
 
-        #faellesskab {
+        #splash_index_banner {
+            background-color: #17253e;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        #splash_index_banner h2 {
+            margin-bottom: 0;
+        }
+
+        #index_faellesskab {
             margin: 15px;
+            color: #17253e;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-end;
         }
 
         .faellesskab_group {
-            padding: 50px;
+            width: 60%;
+            margin-right: 5%;
+            text-align: right;
+        }
+
+        .index_faellesskab_bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .wp-block-video video {
@@ -84,91 +157,158 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            cursor: pointer;
         }
 
         .wp_text_button {
             padding-bottom: 10px;
             margin-bottom: 0px;
-            border-bottom: solid 2px orange;
+            border-bottom: solid 2px #f07958;
         }
 
-        .kompetence {
-            margin: 15px;
-            display: flex;
-            flex-wrap: wrap;
+        #index_kompetence {
+            background-color: #17253e;
+            color: #fff;
+            padding: 15px;
         }
 
         .kompetencer_group {
-            padding: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .kompetencer_group .wp-block-group__inner-container {
+            width: 60%;
+            margin-right: 5%;
+            text-align: right;
         }
 
         .index_courses_heading {
-            padding-bottom: 10px;
-            margin-bottom: 0px;
-            border-bottom: solid 2px orange;
+            font-size: 2rem;
+            text-align: center;
+            padding-bottom: 5px;
+            margin: 5% 0 0 5%;
+            border-bottom: solid 2px #f07958;
+            width: 182.5px
         }
 
-        .courses {
+        .index_courses {
             display: flex;
             gap: 20px;
-            padding: 20px;
+            padding-top: 15px;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
             cursor: pointer;
         }
 
-        .course {
-            flex-basis: 70%;
+        .index_course {
+            flex-basis: 50%;
             flex-shrink: 0;
             height: 30vh;
             scroll-snap-align: center;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            background-size: cover;
         }
 
-        .course h3 {
-            color: orange;
+        .index_course h3 {
+            font-family: proxima-nova, sans-serif;
+            color: #fff;
             margin: 10px;
             padding-bottom: 5px;
-            border-bottom: solid 2px orange;
+            border-bottom: solid 2px #f07958;
         }
 
-        .course_arrow {
-            color: orange;
+        .index_student {
+            color: #f07958;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .index_course_arrow {
+            color: #f07958;
             margin: 10px;
             padding: 5px 10px;
             border-radius: 100%;
-            border: solid 2px orange;
+            border: solid 2px #f07958;
         }
 
-        #oplevelser {
+        #index_oplevelser {
             margin: 15px;
+            color: #17253e;
             display: flex;
             flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .oplevelser_group {
-            padding: 50px;
+            width: 60%;
+            margin-right: 5%;
+            text-align: right;
         }
 
-        #reviews {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
+        .index_oplevelser_bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        /*.review {
-            display: none;
-        }*/
 
-        .fade {
-            animation-name: fade;
+        .index_oplevelser_img img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #index_omihs {
+            padding: 15px;
+            background-color: #17253e;
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .index_omihs_group {
+            width: 60%;
+            margin-right: 5%;
+            text-align: right;
+        }
+
+        .index_omihs_bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        .index_omihs_img img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #index_reviews {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10%;
+            height: 50vh;
+            justify-content: center;
+            align-content: center;
+            color: #17253e;
+        }
+
+        .index_review {}
+
+        .moveqoute {
+            animation-name: moveqoute;
             animation-duration: 10s;
         }
 
-        @keyframes fade {
+        @keyframes moveqoute {
             0% {
                 transform: translateX(100%);
             }
@@ -186,8 +326,30 @@
             }
         }
 
+        .scaledownarrow {
+            animation-name: scaledownarrow;
+            animation-duration: 2s;
+        }
+
+        @keyframes scaledownarrow {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (min-width: 768px) {}
+
         @media (min-width: 1024px) {
             #bg_video {
+                display: block;
                 width: 100vw;
                 height: 100vh;
                 object-fit: cover;
@@ -195,8 +357,8 @@
                 z-index: -1;
             }
 
-        }
 
+        }
     </style>
 </head>
 
@@ -236,16 +398,19 @@
         <video autoplay muted loop id="bg_video" src="">
             <!--<source class="bg_video" src="" type="video/mp4">-->
         </video>
-        <h1></h1>
-        <div class="splash_buttons_container">
+        <div class="splash_index_heading">
+            <h1 class="heading_1"></h1>
+            <h1 class="heading_2"></h1>
+        </div>
+        <div class="splash_index_buttons_container">
             <div class="splash_buttons">
                 <button class="book">Book en rundvisning</button>
                 <button class="become">Blev elev</button>
             </div>
         </div>
-        <div class="arrow_down">ᐯ</div>
+        <div class="splash_index_arrow_down scaledownarrow">ᐯ</div>
     </section>
-    <section id="index_banner">
+    <section id="splash_index_banner">
 
     </section>
 
@@ -253,34 +418,37 @@
     <main>
 
         <!-- Fællesskab sektion -->
-        <section id="faellesskab">
+        <section id="index_faellesskab">
 
         </section>
 
         <!-- Kompetence sektion -->
-        <section id="kompetence">
-            <article class="kompetence"></article>
-            <div class="courses"></div>
+        <section id="index_kompetence">
+            <article class="index_kompetence"></article>
+            <div class="index_courses"></div>
         </section>
         <!-- Oplevelser sektion -->
-        <section id="oplevelser">
+        <section id="index_oplevelser">
 
         </section>
 
+        <!-- Om IHS sektion -->
+        <section id="index_omihs"></section>
+
         <!-- Sektion med "anbefalinger" fra tidligere elever -->
-        <section id="reviews"></section>
+        <section id="index_reviews"></section>
 
         <!-- Templates -->
-        <template class="courses_template">
-            <article class="course">
+        <template class="index_courses_template">
+            <article class="index_course">
                 <h3></h3>
-                <div class="course_arrow">ᐳ</div>
+                <div class="index_course_arrow">ᐳ</div>
             </article>
         </template>
-        <template class="review_template">
-            <article class="review fade">
-                <p class="quote">"<span class="quote_content"></span>"</p>
-                <p class="student"></p>
+        <template class="index_review_template">
+            <article class="index_review moveqoute">
+                <p class="index_quote_content"></p>
+                <h3 class="index_student"></h3>
             </article>
         </template>
     </main>
@@ -350,7 +518,6 @@
         function start() {
             console.log("start");
             getTheSplashPage();
-
         }
 
         async function getTheSplashPage() {
@@ -360,12 +527,29 @@
             thePage = await jsonData.json();
             console.log(thePage);
 
-            document.querySelector("title").textContent = thePage.splash_overskrift;
-            document.querySelector("#splash_index").style.backgroundImage = `url(${thePage.baggrundsbillede.guid})`;
+            document.querySelector("title").textContent = thePage.splash_overskrift + " Sønderborg";
             document.querySelector("#bg_video").src = thePage.splash.guid;
-            document.querySelector("h1").textContent = thePage.splash_overskrift;
-            document.querySelector("#index_banner").innerHTML = thePage.content.rendered;
+            document.querySelector(".heading_1").textContent = thePage.splash_overskrift;
+            document.querySelector(".heading_2").textContent = thePage.overskrift_2;
+
+            let arrow = document.querySelector(".splash_index_arrow_down");
+            arrow.addEventListener("animationend", () => {
+                arrow.classList.remove("scaledownarrow");
+                arrow.offsetLeft;
+                arrow.classList.add("scaledownarrow");
+            });
+            arrow.addEventListener("click", () => {
+                location.href = "index.html#splash_index_banner";
+            });
+            document.querySelector("#splash_index_banner").innerHTML = thePage.content.rendered;
             getTheFaellesskabPage();
+
+            let windowWidth = window.innerWidth;
+
+            if (windowWidth <= 1023) {
+                console.log("WINDOWWIDTH", windowWidth);
+                document.querySelector("#splash_index").style.backgroundImage = `url(${thePage.baggrundsbillede.guid})`;
+            }
         }
 
         async function getTheFaellesskabPage() {
@@ -375,7 +559,11 @@
             thePage = await jsonData.json();
             console.log(thePage);
 
-            document.querySelector("#faellesskab").innerHTML = thePage.content.rendered;
+            document.querySelector("#index_faellesskab").innerHTML = thePage.content.rendered;
+
+            //            document.querySelector("#index_faellesskab .wp_button").addEventListener("click", () => {
+            // location.href = "";
+            // });
 
             getTheKompetencePage();
         }
@@ -387,7 +575,7 @@
             thePage = await jsonData.json();
             console.log(thePage);
 
-            document.querySelector(".kompetence").innerHTML = thePage.content.rendered;
+            document.querySelector(".index_kompetence").innerHTML = thePage.content.rendered;
 
             getTheOplevelserPage();
             getTheCourses();
@@ -410,7 +598,27 @@
             thePage = await jsonData.json();
             console.log(thePage);
 
-            document.querySelector("#oplevelser").innerHTML = thePage.content.rendered;
+            document.querySelector("#index_oplevelser").innerHTML = thePage.content.rendered;
+
+            document.querySelector("#index_oplevelser .wp_button").addEventListener("click", () => {
+                location.href = "rejser.html";
+            });
+
+            getTheOmIhsPage();
+        }
+
+        async function getTheOmIhsPage() {
+            console.log("getTheOmIhsPage");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/417";
+            let jsonData = await fetch(url);
+            thePage = await jsonData.json();
+            console.log(thePage);
+
+            document.querySelector("#index_omihs").innerHTML = thePage.content.rendered;
+
+            document.querySelector("#index_omihs .wp_button").addEventListener("click", () => {
+                location.href = "om_ihs.html";
+            });
 
             getTheQuotes();
         }
@@ -427,37 +635,46 @@
 
         function showCourses() {
             console.log("showCourses");
-            let dest = document.querySelector(".courses");
-            let temp = document.querySelector(".courses_template");
+            let dest = document.querySelector(".index_courses");
+            let temp = document.querySelector(".index_courses_template");
 
             dest.innerHTML = "";
 
             theCourses.forEach(course => {
                 let clone = temp.cloneNode(true).content;
-                clone.querySelector(".course").style.backgroundImage = `url(${course.billede_1.guid})`;
+                clone.querySelector(".index_course").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${course.billede_1.guid})`;
                 clone.querySelector("h3").textContent = course.title.rendered;
+
+                clone.querySelector(".index_course").addEventListener("click", function() {
+                    courseClick(course.id);
+                });
 
                 dest.appendChild(clone);
             })
         }
 
+        function courseClick(id) {
+            console.log(id);
+            location.href = "singleview.html?id=" + id;
+        }
+
         function showQuotes() {
             console.log("showQuotes");
-            let dest = document.querySelector("#reviews");
-            let temp = document.querySelector(".review_template");
+            let dest = document.querySelector("#index_reviews");
+            let temp = document.querySelector(".index_review_template");
 
             dest.innerHTML = "";
 
             theQuotes.forEach(quote => {
                 let clone = temp.cloneNode(true).content;
 
-                clone.querySelector(".quote_content").textContent = quote.citat;
-                clone.querySelector(".student").textContent = "- " + quote.elev;
+                clone.querySelector(".index_quote_content").textContent = quote.citat;
+                clone.querySelector(".index_student").textContent = quote.elev;
 
                 dest.appendChild(clone);
             })
 
-            let slides = document.getElementsByClassName("review");
+            let slides = document.getElementsByClassName("index_review");
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
@@ -468,8 +685,5 @@
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showQuotes, 10000);
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
