@@ -71,6 +71,7 @@
 
         /* Dette er css'en til knapperne i højre side af skærmen */
 
+        /*
         .splash_button_section {
             width: 100vw;
             position: fixed;
@@ -110,56 +111,10 @@
             background-color: #f0bd57;
 
         }
+*/
 
         #bg_video {
             display: none;
-        }
-
-        /*
-        .splash_index_buttons_container {
-
-            position: fixed;
-            width: 100vw;
-
-
-        }
-*/
-
-        .splash_buttons {
-            /*
-            display: flex;
-            justify-content: flex-end;
-            transform: rotate(90deg);
-
-            position: fixed;
-            right: -58vw;
-            top: 50vh;
-
-
-            transform: rotate(90deg);
-*/
-            z-index: 1;
-
-        }
-
-        .splash_buttons button {
-            font-family: proxima-nova, sans-serif;
-            position: fixed;
-            color: #fff;
-            height: 50px;
-            width: 250px;
-            margin: 30px;
-            border: none;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-
-        .book {
-            background-color: #f07958;
-        }
-
-        .become {
-            background-color: #f0bd57;
         }
 
         #splash_index_banner {
@@ -175,7 +130,7 @@
         }
 
         #index_faellesskab {
-            padding: 15px;
+            padding: 5%;
             background-color: #fff;
             color: #17253e;
         }
@@ -190,7 +145,7 @@
             right: 3vw;
             width: 100vw;
             font-family: abolition, sans-serif;
-            font-size: 8rem;
+            font-size: 6rem;
             color: #17253e;
             opacity: 0.2;
             text-align: right;
@@ -200,13 +155,20 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-end;
-            padding-top: 10vh;
+            padding-top: 6.4vh;
+        }
+
+        .faellesskab_group h2 {
+            text-align: right;
         }
 
         .faellesskab_group {
             width: 60%;
             margin-right: 5%;
-            text-align: right;
+        }
+
+        .index_faellesskab_bottom {
+            margin-top: 5%;
         }
 
         .index_faellesskab_bottom .wp-block-group__inner-container {
@@ -221,23 +183,26 @@
         }
 
         .wp_button .wp-block-group__inner-container {
-            display: flex;
-            flex-wrap: wrap;
             align-items: center;
-            justify-content: center;
             cursor: pointer;
+            padding-top: 5%;
         }
 
         .wp_text_button {
-            padding-bottom: 10px;
-            margin-bottom: 0px;
+            padding-bottom: 2px;
+            margin: 0px 10px 0 0;
             border-bottom: solid 2px #f07958;
+        }
+
+        .wp_png_button {
+            height: 54px;
+            width: 54px;
         }
 
         #index_kompetence {
             background-color: #17253e;
             color: #fff;
-            padding: 15px;
+            padding: 5%;
         }
 
         .index_kompetence_bg_heading {
@@ -245,7 +210,7 @@
             right: 3vw;
             width: 100vw;
             font-family: abolition, sans-serif;
-            font-size: 8rem;
+            font-size: 6rem;
             color: #fff;
             opacity: 0.2;
             text-align: right;
@@ -255,13 +220,16 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-end;
-            padding-top: 10vh;
+            padding-top: 6.4vh;
+        }
+
+        .index_kompetencer_group_top h2 {
+            text-align: right;
         }
 
         .index_kompetencer_group_top {
             width: 60%;
             margin-right: 5%;
-            text-align: right;
         }
 
         .index_kompetencer_group_bottom {
@@ -287,7 +255,7 @@
         }
 
         .index_course {
-            flex-basis: 50%;
+            flex-basis: 75%;
             flex-shrink: 0;
             height: 30vh;
             scroll-snap-align: center;
@@ -295,6 +263,7 @@
             justify-content: space-between;
             align-items: flex-end;
             background-size: cover;
+            word-break: break-word;
         }
 
         .index_course h3 {
@@ -314,7 +283,7 @@
         }
 
         #index_oplevelser {
-            padding: 15px;
+            padding: 5%;
             background-color: #fff;
             color: #17253e;
         }
@@ -324,7 +293,7 @@
             right: 3vw;
             width: 100vw;
             font-family: abolition, sans-serif;
-            font-size: 8rem;
+            font-size: 6rem;
             color: #17253e;
             opacity: 0.2;
             text-align: right;
@@ -334,13 +303,20 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-end;
-            padding-top: 10vh;
+            padding-top: 6.4vh;
+        }
+
+        .oplevelser_group h2 {
+            text-align: right;
         }
 
         .oplevelser_group {
             width: 60%;
             margin-right: 5%;
-            text-align: right;
+        }
+
+        .index_oplevelser_bottom {
+            margin-top: 5%;
         }
 
         .index_oplevelser_bottom .wp-block-group__inner-container {
@@ -359,7 +335,7 @@
         #index_omihs {
             background-color: #17253e;
             color: #fff;
-            padding: 15px;
+            padding: 5%;
         }
 
         .index_omihs_bg_heading {
@@ -367,7 +343,7 @@
             right: 3vw;
             width: 100vw;
             font-family: abolition, sans-serif;
-            font-size: 8rem;
+            font-size: 6rem;
             color: #fff;
             opacity: 0.2;
             text-align: right;
@@ -377,13 +353,20 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-end;
-            padding-top: 10vh;
+            padding-top: 6.4vh;
+        }
+
+        .index_omihs_group h2 {
+            text-align: right;
         }
 
         .index_omihs_group {
             width: 60%;
             margin-right: 5%;
-            text-align: right;
+        }
+
+        .index_omihs_bottom {
+            margin-top: 5%;
         }
 
         .index_omihs_bottom .wp-block-group__inner-container {
@@ -403,6 +386,7 @@
             background-color: #fff;
             color: #17253e;
             padding: 10%;
+            overflow-x: hidden;
         }
 
         .index_reviews_bg_heading_1 {
@@ -510,6 +494,12 @@
             .wp-block-video video {
                 max-width: 50vw;
             }
+
+            /*
+            .wp_button {
+                flex-basis: 40%;
+            }
+*/
 
             .index_kompetence {
                 padding-top: 19vh;
@@ -638,6 +628,7 @@
 <body>
 
     <!-- dette er knapperne som er i højre side af skærmen -->
+    <!--
     <section class="splash_button_section">
         <div class="splash_buttons_container">
             <div class="splash_buttons">
@@ -646,6 +637,7 @@
             </div>
         </div>
     </section>
+-->
 
     <!-- Global menu -->
     <header>
