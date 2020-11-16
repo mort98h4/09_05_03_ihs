@@ -6,64 +6,333 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Højskolen | Idrætshøjskolen Sønderborg</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dwn7cem.css">
 
     <style>
+        header {
+            background-color: white;
+            z-index: 10;
+        }
+
+        /*---------------------------------------------------------------------*/
+
+
+
+
+
+        /*---------------------------------------------------------------------*/
         .blue_back {
             background-color: #17253E;
         }
 
         .white_font {
             color: white;
+
+        }
+
+        .orange_font p {
+            color: #F0795B;
+        }
+
+        /*---------------------------------------------------------------------*/
+        img {
+            height: 100%;
+        }
+
+        /*---------------------------------------------------------------------*/
+        /*knapper*/
+
+        .wp_png_button {
+            width: 4rem;
+        }
+
+        .svg_knap {
+            width: 4rem;
+        }
+
+        .txt_knap {
+            border-bottom: 1px solid black;
+        }
+
+        .svg_knap:hover {
+            color: orange;
+        }
+
+        .txt_knap:hover {
+            border-bottom: 1px solid #F0795B;
+            color: orange;
         }
 
 
+
+        /*---------------------------------------------------------------------*/
+        /*Splash h1*/
+
+        #splash h1 {
+            font-size: 4rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: white;
+            padding-top: 20vh;
+        }
+
+
+
+        /*---------------------------------------------------------------------*/
+        /*Section grid på splash og første citat*/
+        #grid_container {
+            display: grid;
+            grid-auto-rows: 100px 200px;
+        }
+
+
+        /*splash */
+        .splash {
+            grid-row: 1/3;
+            z-index: 1;
+        }
+
+        /* citater*/
+        #quote_1 {
+            grid-row: 3/7;
+
+        }
+
+        @media (min-width: 1024px) {
+            #grid_container {
+                grid-auto-rows: 250px 200px;
+            }
+
+            #quote_1 {
+                grid-row: 3/7;
+
+            }
+        }
+
+
+        /*---------------------------------------------------------------------*/
+        /*quotation*/
+        /*størrelsen på quotations web*/
         .quotation_begin,
         .quotation_end {
-            width: 10rem;
+            width: 5rem;
         }
+
+        @media (min-width: 768px) {
+
+            .quotation_begin,
+            .quotation_end {
+                width: 8rem;
+            }
+        }
+
+        /********** For desktop **********/
+        @media (min-width: 1024px) {
+
+            .quotation_begin,
+            .quotation_end {
+                width: 10rem;
+            }
+        }
+
+
+
+        /*---------------------------------------------------------------------*/
 
         .quote {
             display: grid;
-            grid-gap: 10px;
-            grid-template-columns: (3, 1fr);
-            grid-auto-rows: 1fr;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-auto-rows: 25% 25% 25% 25%;
+            padding: 2rem;
+            padding-top: 4rem;
+
         }
 
-        .quotation_begin {
-            grid-column: 1/2;
-            grid-row: 1/2;
-        }
-
-        .quotation_end {
-            grid-column: 3/3;
-            grid-row: 3/3;
-        }
-
-        .quote_text {
-            grid-column: 2/2;
+        /* sætter grid på citatet 1*/
+        #quote_1 .quotation_begin {
+            grid-column: 1/1;
             grid-row: 2/2;
+        }
+
+        #quote_1 .quotation_end {
+            grid-column: 4/5;
+            grid-row: 5/5;
+        }
+
+        #quote_1 .quote_text {
+            grid-column: 1/5;
+            grid-row: 2/4;
             display: flex;
             flex-wrap: wrap;
             margin: auto;
+            padding: 3rem;
+            z-index: 2;
         }
 
 
-        .wp_container {
+        /* sætter grid på citaterne 2 og 3*/
+        #quote_2 .quotation_begin,
+        #quote_3 .quotation_begin {
+            grid-column: 1/1;
+            grid-row: 1/2;
+        }
+
+        #quote_2 .quotation_end,
+        #quote_3 .quotation_end {
+            grid-column: 4/5;
+            grid-row: 4/5;
+        }
+
+        #quote_2 .quote_text,
+        #quote_3 .quote_text {
+            grid-column: 1/5;
+            grid-row: 1/4;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            padding: 3rem;
+            z-index: 2;
+        }
+
+
+
+        @media (min-width: 1024px) {
+            .quote {
+                grid-template-columns: 15% 35% 35% 15%;
+                grid-auto-rows: 25% 25% 25% 25%;
+                max-width: 800px;
+                margin: 10rem auto;
+            }
+
+
+            #quote_1 .quote {
+                margin-top: 10rem;
+            }
+
+            #quote_1 .quotation_begin {
+                grid-column: 1/1;
+                grid-row: 2/2;
+            }
+
+            #quote_1 .quotation_end {
+                grid-column: 4/5;
+                grid-row: 5/5;
+                margin-top: 3rem
+            }
+
+            #quote_1 .quote_text {
+                grid-column: 1/5;
+                grid-row: 3/4;
+                display: flex;
+                flex-wrap: wrap;
+                padding-right: 3rem;
+                z-index: 2;
+            }
+
+
+            /* sætter grid på citaterne 2 og 3*/
+            #quote_2 .quotation_begin,
+            #quote_3 .quotation_begin {
+                grid-column: 1/1;
+                grid-row: 1/2;
+            }
+
+            #quote_2 .quotation_end,
+            #quote_3 .quotation_end {
+                grid-column: 4/5;
+                grid-row: 5/5;
+            }
+
+            #quote_2 .quote_text,
+            #quote_3 .quote_text {
+                grid-column: 1/5;
+                grid-row: 2/4;
+                display: flex;
+                flex-wrap: wrap;
+                margin: auto;
+                padding: 0rem;
+                z-index: 2;
+            }
+
+        }
+
+
+        /*---------------------------------------------------------------------*/
+        /********** For desktop **********/
+
+        .splash .wp_container {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
+
         }
 
         .wp_column {
-            padding: 3rem;
-            flex-basis: 400px;
+            padding: 2rem;
+            flex-basis: 350px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
+        .hide {
+            display: none;
+        }
 
+        /********** For ipad **********/
+        @media (min-width: 768px) {
+
+            .column_right.hide {
+                display: flex;
+            }
+        }
+
+        /********** For desktop **********/
+        @media (min-width: 1024px) {
+            .hide {
+                display: flex;
+            }
+
+            .splash .wp_container {
+                max-width: 1400px;
+                margin: 0 auto;
+                justify-content: space-between;
+                margin-top: 4rem;
+            }
+
+            .wp_column {
+                padding: 2rem;
+                flex-basis: 30%;
+
+            }
+        }
+
+
+
+        /*---------------------------------------------------------------------*/
+
+
+        #summer_vinter h2 {
+            border-bottom: 2px solid #F0795B;
+            max-width: 550px;
+        }
+
+        /*siw*/
+        .summer_vinter_text_div {
+            max-width: 1400px;
+            padding: 2rem;
+            margin: 0 auto;
+        }
+
+
+
+        @media (min-width: 1024px) {
+            #summer_vinter h2 {}
+        }
+
+
+        /* summer vinter*/
         .summer_vinter {
             display: flex;
             flex-direction: row;
@@ -90,39 +359,148 @@
             background-size: cover;
         }
 
-        .travel_with .wp-block-columns {
-            display: flex;
-            flex-direction: row;
+        /*---------------------------------------------------------------------*/
+
+        #finde_course_content {
+            padding-left: 2rem;
+            padding-top: 4rem;
         }
 
-        .svg_knap {
-            width: 4rem;
+        #finde_course_content .wp_button {
+            padding-bottom: 1rem;
+
         }
 
-        .txt_knap {
-            border-bottom: 1px solid black;
+        #finde_course_content .wp_button:hover {
+            color: #F0795B;
         }
 
-        .svg_knap:hover {
-            color: orange;
+        .wp_svg_button {
+            width: 6rem
         }
 
-        .txt_knap:hover {
-            border-bottom: 1px solid orange;
-            color: orange;
+        #finde_course_content .wp_text_button {
+            width: 70%;
+            margin: 0;
+            padding-top: 2rem;
+            border-bottom: 2px solid #F0795B;
         }
+
+
+        /*---------------------------------------------------------------------*/
+
+        .travel_with .wp-block-columns {}
+
+
+
+
+
+        /*---------------------------------------------------------------------*/
 
         /*font størrelser*/
-        h2 {
-            font-size: 3rem;
+        h1 {
+            letter-spacing: 8px;
         }
 
+        h2 {
+            font-size: 1.4rem;
+            letter-spacing: 5px;
+        }
 
-        /**/
+        h3 {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        h3,
+        h2,
+        h1 {
+            font-family: "abolition";
+
+        }
+
+        p {
+            font-family: "proxima-nova";
+        }
+
+        @media (min-width: 768px) {}
+
+        /********** For desktop **********/
+        @media (min-width: 1024px) {
+            .quote p {
+                font-size: 1.5rem;
+            }
+
+            .quote h3 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+
+
+            }
+        }
+
+        /*---------------------------------------------------------------------*/
+        /* Dette er css'en til knapperne i højre side af skærmen */
+        /*
+        .splash_button_section {
+            width: 100vw;
+            position: fixed;
+            z-index: 10;
+        }
+
+        .splash_buttons {
+            margin-top: 20vh;
+            height: 600px;
+            display: grid;
+            grid-template-areas: "left right1""left none""left right2";
+            justify-content: flex-end;
+
+        }
+
+        .splash_buttons div {
+            color: #fff;
+            height: 250px;
+            width: 50px;
+            padding-right: 1rem;
+            border: none;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            -webkit-writing-mode: vertical-rl;
+            text-align: -webkit-center
+        }
+
+        .book {
+            grid-area: right1;
+            background-color: #f07958;
+
+
+        }
+
+        .become {
+            grid-area: right2;
+            background-color: #f0bd57;
+
+        }
+*/
     </style>
 </head>
 
 <body>
+
+    <!-- dette er knapperne som er i højre side af skærmen -->
+    <!--
+    <section class="splash_button_section">
+        <div class="splash_buttons_container">
+            <div class="splash_buttons">
+                <div class="book">Book en rundvisning</div>
+                <div class="become">Blev elev</div>
+            </div>
+        </div>
+    </section>
+-->
     <!-- Global menu -->
     <header>
         <nav id="menu">
@@ -157,14 +535,23 @@
     </section>
 
 
-    <main>
-        <section class="splash">
-            <div id="splash_content"></div>
 
+    <main>
+        <section id="grid_container">
+            <section class="splash">
+                <div id="splash_content"></div>
+
+            </section>
+
+            <section id="quote_1" class="blue_back white_font ">
+                <article class="quote_container orange_font"></article>
+            </section>
         </section>
 
-        <section id="quote_1" class="blue_back white_font">
-            <article class="quote"></article>
+        <section id="summer_vinter" class="blue_back">
+            <div class="summer_vinter_text_div">
+                <article class="summer_vinter_text"></article>
+            </div>
         </section>
 
         <div Class="summer_vinter blue_back white_font">
@@ -181,7 +568,7 @@
         </div>
 
         <section id="quote_2">
-            <article class="quote"></article>
+            <article class="quote_container orange_font"></article>
         </section>
 
         <section class="find_your_course blue_back white_font">
@@ -189,7 +576,7 @@
         </section>
 
         <section id="quote_3">
-            <article class="quote"></article>
+            <article class="quote_container orange_font"></article>
         </section>
 
         <section class="travel_with">
@@ -197,18 +584,18 @@
         </section>
 
 
-        <template id="student_quote_tmpl2">
-            <article class="quote">
-                <img class="quotation_begin" src="" alt="">
-                <div class="quote_text">
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <img class="quotation_end" src="" alt="">
-            </article>
-        </template>
-
     </main>
+
+    <template id="student_quote_tmpl2">
+        <article class="quote">
+            <img class="quotation_begin" src="" alt="">
+            <div class="quote_text">
+                <h3></h3>
+                <p></p>
+            </div>
+            <img class="quotation_end" src="" alt="">
+        </article>
+    </template>
 
     <footer class="footer">
         <div class="footer__text container">
@@ -249,11 +636,11 @@
                 <a href="#" class="footer__link">Job</a>
             </div>
             <div class="footer_social">
-            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Facebook2_colored_svg_5296500.svg" alt="facebook"></a>
-            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Instagram_colored_svg_1_5296765.svg" alt="Instagram"></a>
-            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Youtube_colored_svg_5296521.svg" alt="YouTube"></a>
-            <a href=""><img src="ihs_billedgalleri/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.svg" alt="linkedin"></a>
-        </div>
+                <a href=""><img src="ihs_billedgalleri/iconfinder_1_Facebook2_colored_svg_5296500.svg" alt="facebook"></a>
+                <a href=""><img src="ihs_billedgalleri/iconfinder_1_Instagram_colored_svg_1_5296765.svg" alt="Instagram"></a>
+                <a href=""><img src="ihs_billedgalleri/iconfinder_1_Youtube_colored_svg_5296521.svg" alt="YouTube"></a>
+                <a href=""><img src="ihs_billedgalleri/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.svg" alt="linkedin"></a>
+            </div>
         </div>
 
 
@@ -272,6 +659,7 @@
             console.log("start");
             getTheQuote();
             getTheSplash();
+            getThePageSummerVinter();
             getThePageSummer();
             getThePageVinter();
             getTheCourse();
@@ -296,6 +684,21 @@
             console.log(data);
             document.querySelector("#splash_content").innerHTML = data.content.rendered;
 
+        }
+
+        //done
+        // Henter WP pagen Højskole sommer/vinter overskrift
+        async function getThePageSummerVinter() {
+            console.log("getThePageTravel");
+            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/324";
+            let jsonData = await fetch(url);
+            let json = await jsonData.json();
+            showPageSummerVinter(json);
+        }
+
+        function showPageSummerVinter(data) {
+            console.log(data);
+            document.querySelector(".summer_vinter_text").innerHTML = data.content.rendered;
         }
 
         // done
@@ -378,9 +781,9 @@
         }
 
         function showTheStudentQuote(studentQuotes) {
-            let dest1 = document.querySelector("#quote_1 .quote");
-            let dest2 = document.querySelector("#quote_2 .quote");
-            let dest3 = document.querySelector("#quote_3 .quote");
+            let dest1 = document.querySelector("#quote_1 .quote_container");
+            let dest2 = document.querySelector("#quote_2 .quote_container");
+            let dest3 = document.querySelector("#quote_3 .quote_container");
             let tmpl2 = document.querySelector("#student_quote_tmpl2");
 
             dest1.innerHTML = "";
@@ -392,24 +795,24 @@
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
                     clone.querySelector("p").textContent = studentQuote.elev;
-                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_left.guid;
-                    clone.querySelector(".quotation_end").src = studentQuote.quotation_right.guid;
+                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_start_dark.guid;
+                    clone.querySelector(".quotation_end").src = studentQuote.quotation_end_dark.guid;
                     dest1.appendChild(clone);
                 }
                 if (studentQuote.id == "302") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
                     clone.querySelector("p").textContent = studentQuote.elev;
-                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_left.guid;
-                    clone.querySelector(".quotation_end").src = studentQuote.quotation_right.guid;
+                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_start_light.guid;
+                    clone.querySelector(".quotation_end").src = studentQuote.quotation_end_light.guid;
                     dest2.appendChild(clone);
                 }
                 if (studentQuote.id == "300") {
                     let clone = tmpl2.cloneNode(true).content;
                     clone.querySelector("h3").textContent = studentQuote.citat;
                     clone.querySelector("p").textContent = studentQuote.elev;
-                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_left.guid;
-                    clone.querySelector(".quotation_end").src = studentQuote.quotation_right.guid;
+                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_start_light.guid;
+                    clone.querySelector(".quotation_end").src = studentQuote.quotation_end_light.guid;
                     dest3.appendChild(clone);
                 }
 
