@@ -12,11 +12,6 @@ burger.addEventListener("click", () => {
     burger.classList.toggle("toggle");
 });
 
-document.querySelector("#logo").addEventListener("click", logoClick);
-//document.querySelector(".dropdown").addEventListener("mouseover", () => {
-//document.querySelector(".dropdown_content").style.display = "block";
-//})
-
-function logoClick() {
+document.querySelector("#logo").addEventListener("click", () => {
     location.href = "index.html";
-}
+});
