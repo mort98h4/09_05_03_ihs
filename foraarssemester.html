@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forårssemester | Idrætshøjskolen Sønderborg</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_siw.css">
 
     <style>
         #course {
@@ -32,6 +33,65 @@
         .quotation_end {
             width: 10rem;
         }
+
+        /*---------------------------------------------------------*/
+        .timeline {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /*---------------------------------------------------------*/
+
+
+        @media (min-width: 1024px) {
+            .quote {
+                grid-template-columns: 15% 35% 35% 15%;
+                grid-auto-rows: 25% 25% 25% 25%;
+                max-width: 800px;
+                margin: 10rem auto;
+            }
+
+
+            #quote_2 .quote {
+                margin-top: 10rem;
+            }
+
+            #quote_2 .quotation_begin {
+                grid-column: 1/1;
+                grid-row: 2/2;
+            }
+
+            #quote_2 .quotation_end {
+                grid-column: 4/5;
+                grid-row: 5/5;
+                margin-top: 3rem
+            }
+
+            #quote_2 .quote_text {
+                grid-column: 1/5;
+                grid-row: 3/4;
+                display: flex;
+                flex-wrap: wrap;
+                padding-right: 3rem;
+                z-index: 2;
+            }
+
+            /*
+
+            <template id="student_quote_tmpl2">
+            <article class="quote">
+                <img class="quotation_begin" src="" alt="">
+                <div class="quote_text">
+                    <p class="citat"></p>
+                    <p class="elev orange_font"></p>
+                </div>
+                <img class="quotation_end" src="" alt="">
+            </article>
+        </template>
+
+        */
+
+            /*---------------------------------------------------------*/
     </style>
 </head>
 
@@ -70,12 +130,12 @@
         <h1></h1>
     </section>
     <main>
-        <section class="splash">
+        <section class="splash timeline">
             <div id="splash_content"></div>
 
         </section>
 
-        <section id="quote_1">
+        <section id="quote_2" class="blue_back white_font">
             <article class="quote"></article>
         </section>
 
@@ -89,7 +149,7 @@
             <div id="schedule"></div>
         </section>
 
-        <section id="quote_2">
+        <section id="quote_3" class="blue_back white_font">
             <article class="quote"></article>
         </section>
 
@@ -108,8 +168,10 @@
         <template id="student_quote_tmpl2">
             <article class="quote">
                 <img class="quotation_begin" src="" alt="">
-                <h3></h3>
-                <p></p>
+                <div class="quote_text">
+                    <p class="citat"></p>
+                    <p class="elev orange_font"></p>
+                </div>
                 <img class="quotation_end" src="" alt="">
             </article>
         </template>
@@ -195,7 +257,6 @@
         function showSplash(data) {
             console.log(data);
             document.querySelector("#splash_content").innerHTML = data.content.rendered;
-
         }
 
         // henter citaterne
@@ -209,8 +270,8 @@
         }
 
         function showTheStudentQuote(studentQuotes) {
-            let dest1 = document.querySelector("#quote_1 .quote");
-            let dest2 = document.querySelector("#quote_2 .quote");
+            let dest1 = document.querySelector("#quote_2 .quote");
+            let dest2 = document.querySelector("#quote_3 .quote");
 
             let tmpl2 = document.querySelector("#student_quote_tmpl2");
 
@@ -221,18 +282,18 @@
             studentQuotes.forEach(studentQuote => {
                 if (studentQuote.id == "298") {
                     let clone = tmpl2.cloneNode(true).content;
-                    clone.querySelector("h3").textContent = studentQuote.citat;
-                    clone.querySelector("p").textContent = studentQuote.elev;
-                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_left.guid;
-                    clone.querySelector(".quotation_end").src = studentQuote.quotation_right.guid;
+                    clone.querySelector(".citat").textContent = studentQuote.citat;
+                    clone.querySelector(".elev").textContent = studentQuote.elev;
+                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_start_light.guid;
+                    clone.querySelector(".quotation_end").src = studentQuote.quotation_end_light.guid;
                     dest1.appendChild(clone);
                 }
                 if (studentQuote.id == "297") {
                     let clone = tmpl2.cloneNode(true).content;
-                    clone.querySelector("h3").textContent = studentQuote.citat;
-                    clone.querySelector("p").textContent = studentQuote.elev;
-                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_left.guid;
-                    clone.querySelector(".quotation_end").src = studentQuote.quotation_right.guid;
+                    clone.querySelector(".citat").textContent = studentQuote.citat;
+                    clone.querySelector(".elev").textContent = studentQuote.elev;
+                    clone.querySelector(".quotation_begin").src = studentQuote.quotation_start_light.guid;
+                    clone.querySelector(".quotation_end").src = studentQuote.quotation_end_light.guid;
                     dest2.appendChild(clone);
                 }
             })
