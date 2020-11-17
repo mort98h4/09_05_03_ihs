@@ -6,6 +6,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-family: abolition, sans-serif;
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-family: abolition, sans-serif;
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-family: abolition, sans-serif;
+            font-size: : 2rem;
+        }
+
+        p {
+            font-family: proxima-nova, sans-serif;
+        }
+
+        #splash_fag {
+            padding: 5%;
+            width: 100vw;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+/*            background-attachment: fixed;*/
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        #splash_fag h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        #intro_fag {
+            padding: 5%;
+            background-color: #fff;
+            color: #17253e;
+        }
+
+        .intro_fag {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .buttons_categories {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .filter_button {
+            flex-grow: 1;
+            flex-basis: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .filter_button:nth-of-type(odd) {
+            margin-right: 20px;
+        }
+
+        .buttons_categories button {
+            font-family: proxima-nova, sans-serif;
+            font-size: 1rem;
+            background-color: transparent;
+            color: #17253e;
+            border: none;
+            border-bottom: solid 2px #f07958;
+            padding: 0;
+            padding-bottom: 2px;
+            text-align: left;
+            width: 100px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .filter_button img {
+            height: 54px;
+            width: 54px;
+        }
+
+        #specialefag {
+            background-color: #17253e;
+            color: #fff;
+            padding: 5%;
+        }
+
+        #idraetsfag {
+            background-color: #fff;
+            color: #17253e;
+            padding: 5%;
+        }
+
+        #almene_fag {
+            background-color: #17253e;
+            color: #fff;
+            padding: 5%;
+        }
+
+        #interessefag {
+            background-color: #fff;
+            color: #17253e;
+            padding: 5%;
+        }
+
+        #faellesfag {
+            background-color: #17253e;
+            color: #fff;
+            padding: 5%;
+        }
+
+        .fag_courses {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            cursor: pointer;
+        }
+
+        .fag_course {
+            flex-basis: 75%;
+            flex-shrink: 0;
+            height: 30vh;
+            scroll-snap-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            background-size: cover;
+            word-break: break-word;
+        }
+
+        .fag_course h3 {
+            font-family: proxima-nova, sans-serif;
+            color: #fff;
+            margin: 10px;
+            padding-bottom: 5px;
+            border-bottom: solid 2px #f07958;
+        }
+
+        .fag_course img {
+            width: 54px;
+            height: 54px;
+            margin: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .filter_button {
+                flex-basis: 230px;
+            }
+
+            .filter_button:nth-of-type(odd) {
+                margin-right: 0;
+            }
+
+            .fag_course {
+                flex-basis: 40%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .filter_button {
+                flex-basis: 300px;
+            }
+
+            .course_container {
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            .fag_course {
+                flex-basis: 25%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -42,50 +230,64 @@
     <!-- Splashbillede og overskrift -->
     <section id="splash_fag">
         <h1></h1>
-        <button>Jeg er en knap.</button>
     </section>
 
     <!-- Indhold på fag siden -->
     <main>
         <section id="intro_fag">
-            <article>
+            <article class="intro_fag">
 
             </article>
             <div class="buttons_semester"></div>
             <nav class="buttons_categories">
-                <button>Alle</button>
+                <div class="filter_button">
+                    <button>Alle</button>
+                    <img src="ihs_billedgalleri/cta_pil_NY.png">
+                </div>
             </nav>
         </section>
         <section id="specialefag">
-            <h2></h2>
-            <article class="course"></article>
+            <div class="course_container">
+                <h2></h2>
+                <article class="fag_courses"></article>
+            </div>
         </section>
         <section id="idraetsfag">
-            <h2></h2>
-            <article class="course"></article>
+            <div class="course_container">
+                <h2></h2>
+                <article class="fag_courses"></article>
+            </div>
         </section>
         <section id="almene_fag">
-            <h2></h2>
-            <article class="course"></article>
+            <div class="course_container">
+                <h2></h2>
+                <article class="fag_courses"></article>
+            </div>
         </section>
         <section id="interessefag">
-            <h2></h2>
-            <article class="course"></article>
+            <div class="course_container">
+                <h2></h2>
+                <article class="fag_courses"></article>
+            </div>
         </section>
         <section id="faellesfag">
-            <h2></h2>
-            <article class="course"></article>
+            <div class="course_container">
+                <h2></h2>
+                <article class="fag_courses"></article>
+            </div>
         </section>
     </main>
     <!-- TEMPLATES -->
     <template id="button_tmpl">
-        <button></button>
+        <div class="filter_button">
+            <button></button>
+            <img src="ihs_billedgalleri/cta_pil_NY.png">
+        </div>
     </template>
-    <template id="course_tmpl">
-        <article class="course">
-            <img src="" alt="">
+    <template id="fag_courses_template">
+        <article class="fag_course">
             <h3></h3>
-            <p>Klik og læs mere</p>
+            <img src="ihs_billedgalleri/cta_pil_NY.png">
         </article>
     </template>
 
@@ -162,7 +364,7 @@
             document.querySelector("title").textContent = thePage.title.rendered + " | Idrætshøjskolen Sønderborg";
             document.querySelector("#splash_fag").style.backgroundImage = `url(${thePage.splash.guid})`;
             document.querySelector("h1").textContent = thePage.splash_overskrift;
-            document.querySelector("#intro_fag article").innerHTML = thePage.content.rendered;
+            document.querySelector(".intro_fag").innerHTML = thePage.content.rendered;
 
 
             getTheCategories();
@@ -198,15 +400,15 @@
             let dest = document.querySelector(".buttons_categories");
             let temp = document.querySelector("#button_tmpl");
 
-            document.querySelector(".buttons_categories button").dataset.id = "alle";
-            document.querySelector(".buttons_categories button").addEventListener("click", categoryClick);
+            document.querySelector(".filter_button").dataset.id = "alle";
+            document.querySelector(".filter_button").addEventListener("click", categoryClick);
             theCategories.forEach(category => {
                 let clone = temp.cloneNode(true).content;
                 clone.querySelector("button").textContent = category.name;
-                clone.querySelector("button").dataset.name = category.name;
-                clone.querySelector("button").dataset.id = category.id;
-                clone.querySelector("button").classList.add("cat_btn");
-                clone.querySelector("button").addEventListener("click", categoryClick);
+                clone.querySelector(".filter_button").dataset.name = category.name;
+                clone.querySelector(".filter_button").dataset.id = category.id;
+                clone.querySelector(".filter_button").classList.add("cat_btn");
+                clone.querySelector(".filter_button").addEventListener("click", categoryClick);
                 dest.appendChild(clone);
 
                 if (category.slug == "specialefag") {
@@ -261,12 +463,12 @@
         }
 
         function showCourses(theFilteredJson) {
-            let dest1 = document.querySelector("#specialefag .course");
-            let dest2 = document.querySelector("#idraetsfag .course");
-            let dest3 = document.querySelector("#almene_fag .course");
-            let dest4 = document.querySelector("#interessefag .course");
-            let dest5 = document.querySelector("#faellesfag .course");
-            let temp = document.querySelector("#course_tmpl");
+            let dest1 = document.querySelector("#specialefag .fag_courses");
+            let dest2 = document.querySelector("#idraetsfag .fag_courses");
+            let dest3 = document.querySelector("#almene_fag .fag_courses");
+            let dest4 = document.querySelector("#interessefag .fag_courses");
+            let dest5 = document.querySelector("#faellesfag .fag_courses");
+            let temp = document.querySelector("#fag_courses_template");
 
             document.querySelector("#idraetsfag").style.display = "block";
             document.querySelector("#almene_fag").style.display = "block";
@@ -284,10 +486,10 @@
             theFilteredJson.forEach(course => {
                 if (course.categories == "2") {
                     let clone = temp.cloneNode(true).content;
-                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector(".fag_course").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${course.billede_1.guid})`;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
-                    clone.querySelector(".course").addEventListener("click", function() {
+                    clone.querySelector(".fag_course").addEventListener("click", function() {
                         courseClick(course.id);
                     });
 
@@ -303,10 +505,10 @@
 
                 if (course.categories == "3") {
                     let clone = temp.cloneNode(true).content;
-                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector(".fag_course").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${course.billede_1.guid})`;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
-                    clone.querySelector(".course").addEventListener("click", function() {
+                    clone.querySelector(".fag_course").addEventListener("click", function() {
                         courseClick(course.id);
                     });
 
@@ -322,10 +524,10 @@
 
                 if (course.categories == "4") {
                     let clone = temp.cloneNode(true).content;
-                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector(".fag_course").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${course.billede_1.guid})`;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
-                    clone.querySelector(".course").addEventListener("click", function() {
+                    clone.querySelector(".fag_course").addEventListener("click", function() {
                         courseClick(course.id);
                     });
 
@@ -341,10 +543,10 @@
 
                 if (course.categories == "5") {
                     let clone = temp.cloneNode(true).content;
-                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector(".fag_course").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${course.billede_1.guid})`;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
-                    clone.querySelector(".course").addEventListener("click", function() {
+                    clone.querySelector(".fag_course").addEventListener("click", function() {
                         courseClick(course.id);
                     });
 
@@ -360,10 +562,10 @@
 
                 if (course.categories == "6") {
                     let clone = temp.cloneNode(true).content;
-                    clone.querySelector("img").src = course.billede_1.guid;
+                    clone.querySelector(".fag_course").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${course.billede_1.guid})`;
                     clone.querySelector("h3").textContent = course.title.rendered;
 
-                    clone.querySelector(".course").addEventListener("click", function() {
+                    clone.querySelector(".fag_course").addEventListener("click", function() {
                         courseClick(course.id);
                     });
 
@@ -383,8 +585,5 @@
             console.log(id);
             location.href = "singleview.html?id=" + id;
         }
-
     </script>
-</body>
-
-</html>
+</body></html>

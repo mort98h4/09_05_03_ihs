@@ -25,6 +25,7 @@ p {
 
 img {
     width: 100%;
+    height: auto;
 }
 
 .valgt {
@@ -120,13 +121,6 @@ img {
 }
 
 /********** Splash sektioner **********/
-#splash_fag {
-    /*background-image: url(http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-content/uploads/2020/11/pexels-pixabay-355952.jpg);*/
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-}
-
 #splash_singleview {
     width: 100vw;
     height: 50vh;
