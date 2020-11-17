@@ -58,7 +58,18 @@
      text-align: center;
      text-transform: uppercase;
      color: white;
-     padding-top: 20vh;
+     padding-top: 28vh;
+
+ }
+
+ @media (min-width: 1024px) {
+     #splash h1 {
+         padding-top: 22vh;
+         text-align: left;
+         font-size: 8rem;
+         padding-left: 10vw;
+     }
+
  }
 
  /*font størrelser*/
