@@ -6,41 +6,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dwn7cem.css">
     <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-family: abolition, sans-serif;
+            font-size: 4rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        h2 {
+            font-family: abolition, sans-serif;
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-family: abolition, sans-serif;
+            font-size: : 2rem;
+        }
+
+        p {
+            font-family: proxima-nova, sans-serif;
+        }
+
+        #splash_singleview {
+            padding: 5%;
+            width: 100vw;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            /*            background-attachment: fixed;*/
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+
         #breadcrumb {
-            width: 100%;
-            background-color: white;
-            display: flex;
-        }
-
-        .course {
+            font-family: proxima-nova, sans-serif;
+            background-color: #fff;
             display: flex;
             flex-wrap: wrap;
+            /*            justify-content: space-evenly;*/
+            padding: 5% 5% 0 5%;
         }
 
-        .column_left {
+        .spacing {
+            padding: 0 5px;
+            color: #17253e;
+        }
+
+        #breadcrumb a {
+            text-decoration: none;
+            color: #17253e;
+            font-size: .9rem;
+        }
+
+        .bc_text {
+            font-weight: bold;
+            color: #f07958;
+        }
+
+        #singleview_course {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5%;
+            background-color: #fff;
+            color: #17253e;
+        }
+
+        .singleview_course {
             display: flex;
-            flex-wrap: wrap;
-            flex-basis: 400px;
-            flex-grow: 1;
-        }
-
-        .column_right {
-            flex-basis: 400px;
-            flex-grow: 1;
+            flex-wrap: wrap-reverse;
         }
 
         .column_bottom {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            gap: 15px;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            border: none;
         }
 
         .column_bottom img {
-            width: 120px;
-            height: 120px;
+            flex-shrink: 0;
+            width: 28%;
+            height: 15vh;
             object-fit: cover;
-            margin: 5px;
+            scroll-snap-align: center;
+            display: flex;
+        }
+
+        .back {
+            margin: 0 0 5% 5%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .back p {
+            color: #17253e;
+            border-bottom: solid 2px #f07958;
+            margin: 0 0 0 10px;
+            padding-left: 15px;
+        }
+
+        .back_arrow {
+            width: 54px;
+            height: 54px;
+            transform: rotate(180deg);
+        }
+
+        @media (min-width: 768px) {
+            .column_left {
+                flex-basis: 45%;
+                flex-grow: 1;
+                padding-right: 15px;
+            }
+
+            .column_right {
+                flex-basis: 45%;
+                flex-grow: 1;
+            }
         }
     </style>
 </head>
@@ -83,29 +175,38 @@
     <main>
         <section id="breadcrumb">
             <a href="index.html">Forside </a>
-            <span>-</span><a href="hoejskole.html"> Højskole </a>
-            <span>-</span><a href="fag.html"> Fag </a>
-            <span>-</span><a class="bc_link" href=""><span class="bc_text"></span></a>
+            <span class="spacing">-</span><a href="hoejskole.html"> Højskole </a>
+            <span class="spacing">-</span><a href="fag.html"> Fag </a>
+            <span class="spacing">-</span><a class="bc_link" href=""><span class="bc_text"></span></a>
         </section>
-        <section class="course">
-            <div class="column_left">
-                <div class="column_top">
-                    <p></p>
+        <section id="singleview_course">
+            <h2></h2>
+            <div class="singleview_course">
+                <div class="column_left">
+                    <div class="column_top">
+                        <p></p>
+                    </div>
+
                 </div>
-                <div class="column_bottom">
-                    <img class="image_1" src="" alt="">
-                    <img class="image_2" src="" alt="">
-                    <img class="image_3" src="" alt="">
-                    <img class="image_4" src="" alt="">
-                    <img class="image_5" src="" alt="">
-                    <img class="image_6" src="" alt="">
+                <div class="column_right">
+                    <div class="column_top">
+                        <img class="image_large" src="" alt="">
+                    </div>
+                    <div class="column_bottom">
+                        <img class="image_1" src="" alt="">
+                        <img class="image_2" src="" alt="">
+                        <img class="image_3" src="" alt="">
+                        <img class="image_4" src="" alt="">
+                        <img class="image_5" src="" alt="">
+                        <img class="image_6" src="" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="column_right">
-                <img class="image_large" src="" alt="">
-            </div>
         </section>
-        <div class="back"><span class="back_arrow">ᐸ</span> Tilbage</div>
+        <div class="back">
+            <img class="back_arrow" src="ihs_billedgalleri/cta_pil_NY.png">
+            <p> Tilbage</p>
+        </div>
     </main>
     <!-- Global footer -->
     <footer class="footer">
@@ -172,10 +273,11 @@
             theCourse = await jsonData.json();
 
             document.querySelector("title").textContent = theCourse.title.rendered + " | Idrætshøjskolen Sønderborg";
-            document.querySelector("#splash_singleview").style.backgroundImage = `url(${theCourse.billede_1.guid})`;
+            document.querySelector("#splash_singleview").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${theCourse.billede_1.guid})`;
             document.querySelector("h1").textContent = theCourse.title.rendered;
             document.querySelector(".bc_link").href = "singleview.html?id=" + theCourse.id;
             document.querySelector(".bc_text").textContent = ` ${theCourse.title.rendered}`;
+            document.querySelector("h2").textContent = `Hvad er ${theCourse.title.rendered}?`;
             document.querySelector(".column_top p").innerHTML = theCourse.beskrivelse;
             document.querySelector(".image_1").src = theCourse.billede_1.guid;
             document.querySelector(".image_2").src = theCourse.billede_2.guid;

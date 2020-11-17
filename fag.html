@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dwn7cem.css">
     <style>
         * {
             scroll-behavior: smooth;
@@ -36,7 +37,7 @@
             height: 50vh;
             background-size: cover;
             background-position: center;
-/*            background-attachment: fixed;*/
+            /*            background-attachment: fixed;*/
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -136,7 +137,6 @@
             padding-top: 15px;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
-            cursor: pointer;
         }
 
         .fag_course {
@@ -149,6 +149,7 @@
             align-items: flex-end;
             background-size: cover;
             word-break: break-word;
+            cursor: pointer;
         }
 
         .fag_course h3 {
@@ -193,6 +194,7 @@
                 flex-basis: 25%;
             }
         }
+
     </style>
 </head>
 
@@ -362,7 +364,7 @@
             thePage = await jsonData.json();
 
             document.querySelector("title").textContent = thePage.title.rendered + " | Idrætshøjskolen Sønderborg";
-            document.querySelector("#splash_fag").style.backgroundImage = `url(${thePage.splash.guid})`;
+            document.querySelector("#splash_fag").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${thePage.splash.guid})`;
             document.querySelector("h1").textContent = thePage.splash_overskrift;
             document.querySelector(".intro_fag").innerHTML = thePage.content.rendered;
 
@@ -585,5 +587,8 @@
             console.log(id);
             location.href = "singleview.html?id=" + id;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
