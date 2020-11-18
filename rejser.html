@@ -70,6 +70,15 @@
             padding: 5%;
         }
 
+        .destinationer_heading {
+            font-size: 2rem;
+            text-align: center;
+            padding-bottom: 5px;
+            margin: 0 0 5% 5%;
+            border-bottom: solid 2px #f07958;
+            width: 125px;
+        }
+
         .rejser {
             display: flex;
             gap: 20px;
@@ -264,6 +273,7 @@
             <article class="intro_rejser"></article>
         </section>
         <section id="destinationer_rejser">
+            <h3 class="destinationer_heading"></h3>
             <article class="rejser"></article>
         </section>
         <section id="rejser">
@@ -369,10 +379,10 @@
             thePage = await jsonData.json();
 
             document.querySelector("title").textContent = thePage.title.rendered + " | Idrætshøjskolen Sønderborg";
-            document.querySelector("#splash_rejser").style.backgroundImage = `url(${thePage.splash.guid})`;
+            document.querySelector("#splash_rejser").style.backgroundImage = `linear-gradient(to bottom, rgba(37, 61, 128, 0.15), rgba(21, 28, 37, 1)), url(${thePage.splash.guid})`;
             document.querySelector("h1").textContent = thePage.title.rendered;
             document.querySelector(".intro_rejser").innerHTML = thePage.content.rendered;
-
+            document.querySelector("#destinationer_rejser h3").textContent = thePage.overskrift_2;
             getTheJourneys();
         }
 
