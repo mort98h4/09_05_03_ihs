@@ -3,11 +3,85 @@
     margin: 0;
 }
 
+
+
+/* sidestillet navigationsmenu*/
+
+
+.splash_button_section {
+    width: 100vw;
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.splash_buttons {
+    margin-top: 20vh;
+    height: 500px;
+    display: grid;
+    grid-template-areas: "left right1""left none""left right2";
+    justify-content: flex-end;
+    pointer-events: none;
+
+}
+
+.splash_buttons div {
+    color: #fff;
+    height: 200px;
+    width: 35px;
+    padding-right: .5rem;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-writing-mode: vertical-rl;
+    text-align: -webkit-center
+}
+
+.book {
+    grid-area: right1;
+    background-color: #f07958;
+    font-family: "abolition";
+    letter-spacing: 3px;
+    pointer-events: visible;
+    cursor: pointer;
+}
+
+.become {
+    grid-area: right2;
+    background-color: #f0bd57;
+    font-family: "abolition";
+    letter-spacing: 2px;
+    pointer-events: visible;
+    cursor: pointer;
+
+}
+
+@media (min-width: 1024px) {
+    .splash_buttons {
+        height: 600px;
+    }
+
+    .splash_buttons div {
+
+        height: 250px;
+        width: 50px;
+        padding-right: 1rem;
+
+
+
+    }
+}
+
+
+
+
+/**/
+
 header {
     /*    background-color: #fff;*/
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 10;
     width: 100vw;
 }
 
