@@ -50,7 +50,7 @@ img {
     right: 0px;
     height: 100vh;
     top: 7vh;
-    background-color: #fff;
+    background-color: #17253e;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,7 +62,8 @@ img {
 }
 
 .nav_links a {
-    color: #000;
+    font-family: proximo-nova, sans-serif;
+    color: #fff;
     text-decoration: none;
     padding: 10px;
     display: block;
@@ -99,7 +100,7 @@ img {
 .burger div {
     width: 23px;
     height: 2px;
-    background-color: black;
+    background-color: #fff;
     margin: 5px;
     transition: all 0.5s ease;
 }
@@ -118,6 +119,23 @@ img {
 
 .nav_active {
     transform: translateX(0%);
+}
+
+.scrolling_active {
+    animation-name: scrolling_active;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes scrolling_active {
+    0% {
+        background-color: rgba(23, 37, 62, 0);
+    }
+
+    100% {
+        background-color: rgba(23, 37, 62, 1);
+    }
 }
 
 /********** Splash sektioner **********/
