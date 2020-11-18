@@ -43,6 +43,7 @@ img {
     margin: 10px;
     width: 150px;
     height: auto;
+    cursor: pointer;
 }
 
 .nav_links {
@@ -50,7 +51,7 @@ img {
     right: 0px;
     height: 100vh;
     top: 7vh;
-    background-color: #fff;
+    background-color: #17253e;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,7 +63,8 @@ img {
 }
 
 .nav_links a {
-    color: #000;
+    font-family: proximo-nova, sans-serif;
+    color: #fff;
     text-decoration: none;
     padding: 10px;
     display: block;
@@ -88,6 +90,7 @@ img {
 
 .dropdown:hover .dropdown_content {
     display: block;
+    background-color: rgba(23, 37, 62, .5);
 }
 
 .burger {
@@ -99,7 +102,7 @@ img {
 .burger div {
     width: 23px;
     height: 2px;
-    background-color: black;
+    background-color: #fff;
     margin: 5px;
     transition: all 0.5s ease;
 }
@@ -120,6 +123,23 @@ img {
     transform: translateX(0%);
 }
 
+.scrolling_active {
+    animation-name: scrolling_active;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes scrolling_active {
+    0% {
+        background-color: rgba(23, 37, 62, 0);
+    }
+
+    100% {
+        background-color: rgba(23, 37, 62, 1);
+    }
+}
+
 /********** Splash sektioner **********/
 #splash_singleview {
     width: 100vw;
@@ -127,82 +147,12 @@ img {
     background-size: cover;
 }
 
-#splash_rejser {
-    width: 100vw;
-    height: 50vh;
-    background-size: cover;
-}
-
 /********** rejser.html **********/
-#intro_rejser {
-    margin: 20px;
-}
 
-#rejser_buttons {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    cursor: pointer;
-}
-
-.rejse {
-    flex-basis: 70%;
-    flex-shrink: 0;
-    height: 50vh;
-    scroll-snap-align: center;
-    display: flex;
-    align-items: flex-end;
-    background-size: cover;
-}
-
-.rejse_info h2,
-.rejse_info p {
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.rejse_info {
-    height: 20%;
-    width: 90%;
-    background-color: rgba(0, 0, 0, .5);
-    color: #fff;
-    margin-bottom: 20px;
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-#rejser {
-    margin: 20px;
-}
-
-.column_top {
-    margin-top: 20px;
-}
-
-.column_bottom {
-    border: solid #000 2px;
-    padding: 10px;
-
-}
-
-.price_info {
-    display: flex;
-    justify-content: space-between;
-}
 
 /********** Media Queries **********/
 /********** For tablet **********/
-@media (min-width: 768px) {
-
-    /********** rejser.html **********/
-    .rejse {
-        flex-basis: 45%;
-    }
-}
+@media (min-width: 768px) {}
 
 /********** For desktop **********/
 @media (min-width: 1024px) {
@@ -231,45 +181,6 @@ img {
 
     .burger {
         display: none;
-    }
-
-    /********** rejser.html **********/
-    #rejser_buttons {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 0;
-    }
-
-    .rejse {
-        flex-basis: 230px;
-    }
-
-    .rejse_info {
-        height: 30%;
-        width: 90%;
-        margin-bottom: 20px;
-        padding: 5px;
-    }
-
-    #rejser article {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    #rejser .column_left {
-        flex-grow: 1;
-        flex-basis: 450px;
-        margin-right: 10px;
-    }
-
-    #rejser .column_right {
-        flex-grow: 1;
-        flex-basis: 450px;
-        margin-left: 10px;
-    }
-
-    #rejser .column_top {
-        margin-top: 0;
     }
 }
 

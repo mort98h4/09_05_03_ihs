@@ -258,7 +258,7 @@
             flex-basis: 75%;
             flex-shrink: 0;
             height: 30vh;
-            scroll-snap-align: center;
+            /*            scroll-snap-align: center;*/
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -583,6 +583,7 @@
                 object-fit: cover;
                 position: absolute;
                 z-index: -1;
+                background-color: black;
             }
 
             .bg_heading_container {
@@ -622,6 +623,7 @@
                 max-width: 40vw;
             }
         }
+
     </style>
 </head>
 
@@ -640,27 +642,26 @@
 -->
 
     <!-- Global menu -->
-
     <header>
         <nav id="menu">
-            <img id="logo" src="ihs_billedgalleri/ihs_logo.png">
+            <img id="logo" src="ihs_billedgalleri/ihs_logo_2.png">
             <div class="nav_links">
                 <div class="dropdown">
                     <a class="drop_button" href="hoejskole.html">Højskole <span class="dropdown_arrow">▼</span></a>
                     <div class="dropdown_content">
-                        <a href="">Forårssemester</a>
-                        <a href="">Efterårssemester</a>
+                        <a href="foraarssemester.html">Forårssemester</a>
+                        <a href="efteraarssemester.html">Efterårssemester</a>
                         <a href="">Linjefag</a>
                         <a href="fag.html">Fag</a>
                         <a href="rejser.html">Rejser</a>
-                        <a href="">Priser</a>
+                        <a href="priser.html">Priser</a>
                     </div>
                 </div>
                 <a href="">Ugekurser</a>
                 <a href="">Erhverv</a>
-                <a href="">Om IHS</a>
-                <a href="">Kontakt</a>
-                <a href="">Tilmeld</a>
+                <a href="om_ihs.html">Om IHS</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="">Tilmelding</a>
             </div>
             <div class="burger">
                 <div class="line1"></div>
@@ -984,5 +985,8 @@
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showQuotes, 10000);
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
