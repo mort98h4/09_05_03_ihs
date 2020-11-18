@@ -3,7 +3,7 @@
 // JavaScript der lytter efter om der bliver scrollet på siden
 window.addEventListener('scroll', function () {
     let header = document.querySelector('header');
-    let windowPosition = window.scrollY > 400;
+    let windowPosition = window.scrollY > 200;
 
     // Tilføjer/fjerner class'en der ændrer farve på menuen
     header.classList.toggle('scrolling_active', windowPosition);

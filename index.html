@@ -258,7 +258,7 @@
             flex-basis: 75%;
             flex-shrink: 0;
             height: 30vh;
-            scroll-snap-align: center;
+            /*            scroll-snap-align: center;*/
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -583,6 +583,7 @@
                 object-fit: cover;
                 position: absolute;
                 z-index: -1;
+                background-color: black;
             }
 
             .bg_heading_container {
@@ -622,6 +623,7 @@
                 max-width: 40vw;
             }
         }
+
     </style>
 </head>
 
@@ -983,5 +985,8 @@
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showQuotes, 10000);
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
