@@ -129,7 +129,7 @@
         .summer_vinter {
             display: grid;
             grid-template-areas: "hej";
-            height: 70vh;
+
 
         }
 
@@ -149,18 +149,40 @@
 
 
         #summer_content {
-            max-width: 500px;
-            margin-left: 10vw;
-            margin-top: 20vh;
+            margin-left: 2rem;
+            margin-top: 15vh;
 
         }
 
         #vinter_content {
-            max-width: 500px;
-            margin-left: 60vw;
-            margin-top: 45vh;
+            margin-left: 26vw;
+            margin-top: 65vh;
 
         }
+
+
+        @media (min-width: 1024px) {
+            #summer_content {
+                max-width: 1400px;
+                margin: 0 auto;
+                margin-top: 15vh;
+            }
+
+            #vinter_content {
+                max-width: 1400px;
+
+            }
+
+            #summer_content .wp_button {
+                padding: 2rem
+            }
+
+            #vinter_content .wp_button {
+                padding: 2rem;
+                padding-left: 25vw;
+            }
+        }
+
 
 
         #summer_vinter {
@@ -172,7 +194,7 @@
             max-width: 550px;
         }
 
-        /*siw*/
+
         .summer_vinter_text_div {
             max-width: 1400px;
             padding: 2rem;
@@ -182,17 +204,15 @@
 
 
         @media (min-width: 1024px) {
-            #summer_vinter h2 {}
+
+            .column_summer,
+            .column_vinter {
+                display: flex;
+                flex-direction: row;
+            }
         }
 
-
-        .column_summer,
-        .column_vinter {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .column_vinter {}
+        /*siw*/
 
 
         #splash {
@@ -209,6 +229,7 @@
         #travel_content {
             padding-left: 2rem;
             padding-top: 4rem;
+
         }
 
         #finde_course_content {
@@ -220,7 +241,7 @@
         /* knapper til se rejser og find fag */
         .wp_button {
             padding-bottom: 1rem;
-
+            cursor: pointer;
         }
 
         .wp_button:hover {
@@ -228,15 +249,33 @@
         }
 
         .wp_svg_button {
-            width: 6rem
+            width: 6rem;
+            height: 54px;
+            width: 54px;
         }
 
         .wp_text_button {
-            width: 70%;
             margin: 0;
-            padding-top: 2rem;
-            border-bottom: 2px solid #F0795B;
             font-size: 1.8rem;
+            padding-bottom: 2px;
+            margin: 0px 10px 0 0;
+            border-bottom: solid 2px #f07958;
+        }
+
+        @media (min-width: 1024px) {
+            .wp_button {
+                padding-bottom: 1rem;
+                cursor: pointer;
+            }
+
+            .wp_png_button img {
+                height: 72px;
+                width: 92px;
+            }
+
+            .wp_text_button {
+                font-size: 3.8rem;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -247,9 +286,11 @@
                 display: grid;
                 grid-template-columns: 50% 50%;
                 grid-auto-rows: 25% 25% 25% 25%;
+                max-width: 1500px;
+                margin-left: auto;
             }
 
-            /*find dit fag*/
+            /*find dit fag placering for*/
             .wp_find_course {
                 grid-column: 1/1;
                 grid-row: 1/2;
@@ -268,7 +309,6 @@
 
             /* se rejser */
 
-
             .wp_find_course {
                 grid-column: 1/1;
                 grid-row: 1/2;
@@ -284,7 +324,21 @@
                 grid-column: 1/1;
                 grid-row: 2/3;
             }
+
+
+            #finde_course_content .wp_text_button,
+            #travel_content .wp_text_button {
+                font-size: 2rem;
+            }
         }
+
+
+        .wp_image {
+            padding-left: 2rem;
+            padding-bottom: 4rem;
+        }
+
+
 
 
         /*---------------------------------------------------------------------*/
@@ -373,7 +427,7 @@
 
             #quote_1 .quotation_end {
                 grid-column: 4/5;
-                grid-row: 5/5;
+                grid-row: 4/4;
                 margin-top: 3rem
             }
 
@@ -394,10 +448,15 @@
                 grid-row: 1/2;
             }
 
+            #quote_2 .quote,
+            #quote_3 .quote {
+                margin: 5rem auto;
+            }
+
             #quote_2 .quotation_end,
             #quote_3 .quotation_end {
                 grid-column: 4/5;
-                grid-row: 5/5;
+                grid-row: 3/4;
             }
 
             #quote_2 .quote_text,
@@ -407,22 +466,24 @@
                 display: flex;
                 flex-wrap: wrap;
                 margin: auto;
-                padding: 0rem;
+                padding: 3rem;
                 z-index: 2;
             }
         }
 
 
         /*---------------------------------------------------------------------*/
-
-        .travel_with img,
-        .find_your_course img {
-            height: 100%;
-
+        .opacity .quotation_end,
+        .opacity .quotation_begin {
+            opacity: .2;
         }
+
 
         /*---------------------------------------------------------------------*/
 
+        .wp_button {
+            max-width: 600px;
+        }
 
         /*---------------------------------------------------------------------*/
     </style>
@@ -431,7 +492,7 @@
 <body>
 
     <!-- dette er knapperne som er i højre side af skærmen -->
-    <!--
+
     <section class="splash_button_section">
         <div class="splash_buttons_container">
             <div class="splash_buttons">
@@ -440,7 +501,7 @@
             </div>
         </div>
     </section>
--->
+
     <!-- Global menu -->
     <header>
         <nav id="menu">
@@ -508,7 +569,7 @@
         </div>
 
         <section id="quote_2">
-            <article class="quote_container orange_font"></article>
+            <article class="quote_container orange_font opacity"></article>
         </section>
 
         <section class="find_your_course blue_back white_font">
@@ -516,7 +577,7 @@
         </section>
 
         <section id="quote_3">
-            <article class="quote_container orange_font"></article>
+            <article class="quote_container orange_font opacity"></article>
         </section>
 
         <section class="travel_with">
@@ -657,6 +718,12 @@
         function showPageSummer(data) {
             console.log(data);
             document.querySelector("#summer_content").innerHTML = data.content.rendered;
+
+            document.querySelector("#summer_content .wp_button").addEventListener("click", clickSummer);
+        }
+
+        function clickSummer() {
+            location.href = "foraarssemester.html";
         }
 
 
@@ -691,6 +758,12 @@
         function showPageCourse(data) {
             console.log(data);
             document.querySelector("#finde_course_content").innerHTML = data.content.rendered;
+
+            document.querySelector("#finde_course_content .wp_button").addEventListener("click", clickCoursePage);
+        }
+
+        function clickCoursePage() {
+            location.href = "fag.html";
         }
 
         //done
@@ -706,8 +779,13 @@
         function showPageTravel(data) {
             console.log(data);
             document.querySelector("#travel_content").innerHTML = data.content.rendered;
+
+            document.querySelector("#travel_content .wp_button").addEventListener("click", travelClick);
         }
 
+        function travelClick() {
+            location.href = "rejser.html";
+        }
 
         //done
         // Henter elev citaterne
