@@ -29,11 +29,13 @@
  /*knapper*/
 
  .wp_png_button {
-     width: 4rem;
+     height: 72px;
+     width: 92px;
  }
 
  .svg_knap {
-     width: 4rem;
+     height: 72px;
+     width: 92px;
  }
 
  .txt_knap {
@@ -49,12 +51,18 @@
      color: orange;
  }
 
+ /*---------------------------------------------------------------------*/
+
+
+
+
+
 
  /*---------------------------------------------------------------------*/
  /*Splash h1*/
 
  #splash h1 {
-     font-size: 4rem;
+     font-size: 2.4rem;
      text-align: center;
      text-transform: uppercase;
      color: white;
@@ -64,10 +72,12 @@
 
  @media (min-width: 1024px) {
      #splash h1 {
+         padding: 2rem;
          padding-top: 22vh;
          text-align: left;
          font-size: 8rem;
-         padding-left: 10vw;
+         max-width: 1400px;
+         margin: 0 auto;
      }
 
  }
@@ -122,46 +132,73 @@
 
  /*---------------------------------------------------------------------*/
  /* Dette er css'en til knapperne i højre side af skærmen */
- /*
-        .splash_button_section {
-            width: 100vw;
-            position: fixed;
-            z-index: 10;
-        }
 
-        .splash_buttons {
-            margin-top: 20vh;
-            height: 600px;
-            display: grid;
-            grid-template-areas: "left right1""left none""left right2";
-            justify-content: flex-end;
+ .splash_button_section {
+     width: 100vw;
+     position: fixed;
+     z-index: 10;
+     pointer-events: none;
+ }
 
-        }
+ .splash_buttons {
+     margin-top: 20vh;
+     height: 500px;
+     display: grid;
+     grid-template-areas: "left right1""left none""left right2";
+     justify-content: flex-end;
+     pointer-events: none;
 
-        .splash_buttons div {
-            color: #fff;
-            height: 250px;
-            width: 50px;
-            padding-right: 1rem;
-            border: none;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            -webkit-writing-mode: vertical-rl;
-            text-align: -webkit-center
-        }
+ }
 
-        .book {
-            grid-area: right1;
-            background-color: #f07958;
+ .splash_buttons div {
+     color: #fff;
+     height: 200px;
+     width: 35px;
+     padding-right: .5rem;
+     border: none;
+     border-top-left-radius: 10px;
+     border-bottom-left-radius: 10px;
+     -webkit-writing-mode: vertical-rl;
+     text-align: -webkit-center
+ }
+
+ .book {
+     grid-area: right1;
+     background-color: #f07958;
+     font-family: "abolition";
+     letter-spacing: 3px;
+     pointer-events: visible;
+     cursor: pointer;
+ }
+
+ .become {
+     grid-area: right2;
+     background-color: #f0bd57;
+     font-family: "abolition";
+     letter-spacing: 2px;
+     pointer-events: visible;
+     cursor: pointer;
+
+ }
+
+ @media (min-width: 1024px) {
+     .splash_buttons {
+         height: 600px;
+     }
+
+     .splash_buttons div {
+
+         height: 250px;
+         width: 50px;
+         padding-right: 1rem;
 
 
-        }
 
-        .become {
-            grid-area: right2;
-            background-color: #f0bd57;
+     }
+ }
 
-        }
 
-*/
+
+
+
  /*---------------------------------------------------------------------*/
