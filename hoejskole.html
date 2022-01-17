@@ -673,7 +673,7 @@
         // Henter WP pagen Højskole Splash
         async function getTheSplash() {
             console.log("getThePages");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/125";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/125";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
             document.querySelector("#splash").style.backgroundImage = `url(${json.splash.guid})`;
@@ -691,7 +691,7 @@
         // Henter WP pagen Højskole sommer/vinter overskrift
         async function getThePageSummerVinter() {
             console.log("getThePageTravel");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/324";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/324";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
             showPageSummerVinter(json);
@@ -706,7 +706,7 @@
         // Henter WP pagen Højskole sommer
         async function getThePageSummer() {
             console.log("getThePageSummer");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/236";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/236";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
 
@@ -731,7 +731,7 @@
         // Henter WP pagen Højskole vinter
         async function getThePageVinter() {
             console.log("getThePageVinter");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/263";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/263";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
 
@@ -749,7 +749,7 @@
         // Henter WP pagen Højskole Kurser
         async function getTheCourse() {
             console.log("getThePageTravel");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/270";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/270";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
             showPageCourse(json);
@@ -770,7 +770,7 @@
         // Henter WP pagen Højskole rejser
         async function getThePageTravel() {
             console.log("getThePageTravel");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/285";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/285";
             let jsonData = await fetch(url);
             let json = await jsonData.json();
             showPageTravel(json);
@@ -791,7 +791,7 @@
         // Henter elev citaterne
         async function getTheQuote() {
             console.log("getTheQuote");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/elevcitat";
             let jsonData = await fetch(url);
             let theStudentQuote = await jsonData.json();
             console.log(theStudentQuote);

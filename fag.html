@@ -381,7 +381,7 @@
 
         async function getThePage() {
             console.log("getThePage");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/225";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/225";
             let jsonData = await fetch(url);
             thePage = await jsonData.json();
 
@@ -396,7 +396,7 @@
 
         async function getTheCategories() {
             console.log("getTheCategories");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/categories";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/categories";
             let jsonData = await fetch(url);
             theCategories = await jsonData.json();
 
@@ -406,7 +406,7 @@
 
         async function getTheCourses() {
             console.log("getTheCourses");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag?per_page=100";
             let jsonData = await fetch(url);
             theCourses = await jsonData.json();
             console.log("LOADING DONE");

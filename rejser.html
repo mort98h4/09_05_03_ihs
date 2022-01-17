@@ -374,7 +374,7 @@
 
         async function getThePage() {
             console.log("getThePage");
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/230";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/pages/230";
             let jsonData = await fetch(url);
             thePage = await jsonData.json();
 
@@ -389,7 +389,7 @@
         async function getTheJourneys() {
             console.log("getTheJourneys");
 
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/rejse";
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/rejse";
             let jsonData = await fetch(url);
             theJourneys = await jsonData.json();
             console.log("LOADING DONE");

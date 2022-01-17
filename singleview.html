@@ -293,7 +293,7 @@
         document.addEventListener("DOMContentLoaded", getTheCourse);
 
         async function getTheCourse() {
-            let url = "http://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag/" + id;
+            let url = "https://mortengross.dk/kea/09_cms/09_05_03_ihs/wordpress/wp-json/wp/v2/fag/" + id;
             let jsonData = await fetch(url);
             theCourse = await jsonData.json();
 
